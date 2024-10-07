@@ -43,7 +43,7 @@ const Post = ({ post }: any) => {
         <div className="mt-4 bg-primary-background rounded-lg overflow-hidden relative">
           <Image
             className="w-full h-64 object-contain"
-            src={post.author.profilePic}
+            src={post.images[0]}
             alt="Post image"
             width={500}
             height={300}

@@ -9,7 +9,7 @@ const Home = () => {
   const { user } = useMe();
 
   return (
-    <div className="relative overflow-hidden flex-1 flex justify-center ">
+    <div className="relative overflow-hidden flex-1 flex justify-center">
       {/* Bubble effect */}
       <div className="bubble-container">
         {Array.from({ length: 20 }).map((_, index) => (

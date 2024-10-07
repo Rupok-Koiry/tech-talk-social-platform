@@ -14,7 +14,7 @@
   --primary-blue: #42a5f5;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --primary-background: #0f172a;
     --secondary-background: #1e293b;
@@ -24,7 +24,7 @@
     --primary-red: #e57373;
     --primary-blue: #64b5f6;
   }
-}
+} */
 
 body {
   color: var(--primary-text);
