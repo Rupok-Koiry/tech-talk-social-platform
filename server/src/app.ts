@@ -18,7 +18,10 @@ app.set('views', path.join(__dirname, 'views'));
 // Middleware for enabling Cross-Origin Resource Sharing (CORS) for specified origins
 app.use(
   cors({
-    origin: ['http://localhost:3000'],
+    origin: [
+      'http://localhost:3000',
+      'https://ph-assignment-06-client.vercel.app',
+    ],
   }),
 );
 
