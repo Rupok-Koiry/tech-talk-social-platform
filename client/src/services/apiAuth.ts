@@ -49,8 +49,9 @@ export async function forgotPassword(email: string) {
   try {
     const response = await api.post("/auth/forgot-password", { email });
     return response.data.data;
-  } catch (error) {
-    console.log(error.message);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    console.log(error?.message);
   }
 }
 
