@@ -80,7 +80,8 @@ exports.forgotPassword = (0, catchAsync_1.default)((req, res, next) => __awaiter
             message: 'Token sent to email!',
         });
     }
-    catch (_a) {
+    catch (error) {
+        console.log(error);
         user.passwordResetToken = undefined;
         user.passwordResetExpires = undefined;
         yield user.save({ validateBeforeSave: false });

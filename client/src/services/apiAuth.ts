@@ -46,10 +46,12 @@ export async function updateCurrentUser(updatedUser: FieldValues) {
 }
 
 export async function forgotPassword(email: string) {
-  const response = await handleApiRequest(
-    api.post("/auth/forgot-password", { email })
-  );
-  return response.data.data;
+  try {
+    const response = await api.post("/auth/forgot-password", { email });
+    return response.data.data;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
 export async function resetPassword({
