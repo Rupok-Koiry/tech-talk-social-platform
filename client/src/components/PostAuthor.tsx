@@ -85,7 +85,7 @@ const PostAuthor: React.FC<PostAuthorProps> = ({ author, postCreatedAt }) => {
   }, [isFollowing, user, author, updateCurrentUser, updateUser]);
 
   return (
-    <div className="flex justify-between items-center gap-3">
+    <div className="flex flex-col md:flex-row justify-between items-center gap-3">
       <div className="flex items-center space-x-4">
         <Image
           className="w-10 h-10 rounded-full object-cover"
@@ -104,7 +104,7 @@ const PostAuthor: React.FC<PostAuthorProps> = ({ author, postCreatedAt }) => {
       {user && user._id !== author._id && (
         <button
           onClick={handleFollowUnfollow}
-          className="px-3 py-1 bg-primary-blue text-white rounded-md border border-primary-blue items-center
+          className=" px-2 md:px-3 text-sm md:text-base py-1 bg-primary-blue text-white rounded-md border border-primary-blue items-center
           hover:bg-white hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300 flex space-x-2
           "
         >

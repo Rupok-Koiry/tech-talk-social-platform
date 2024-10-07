@@ -97,7 +97,7 @@ const WeatherWidget = () => {
       </div>
       <div className="border-t border-white/30 pt-4 mb-4">
         <h3 className="text-sm font-semibold mb-2">5-Day Forecast</h3>
-        <div className="grid grid-cols-5 gap-2">
+        <div className="grid grid-cols-3 xl:grid-cols-5 gap-2">
           {forecast.forecast.forecastday.map((day, index) => (
             <div key={index} className="text-center">
               <p className="text-xs">

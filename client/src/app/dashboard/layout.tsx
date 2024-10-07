@@ -82,7 +82,7 @@ export default function DashboardLayout({
   );
 
   return (
-    <div className="flex h-[calc(100vh-132px)] bg-primary-background overflow-hidden">
+    <div className="flex min-h-screen bg-primary-background">
       {" "}
       {/* Mobile Sidebar Toggle */}
       <motion.button
@@ -97,7 +97,7 @@ export default function DashboardLayout({
       <AnimatePresence>
         {(isSidebarOpen || !isMobile) && (
           <motion.aside
-            className="absolute lg:static w-64 lg:h-full h-[calc(100%-132px)] bg-primary-background shadow-lg overflow-auto rounded-lg z-50"
+            className="absolute lg:static w-64 h-[calc(100vh-80px)] bg-primary-background shadow-lg overflow-auto rounded-lg z-50"
             initial="closed"
             animate="open"
             exit="closed"
