@@ -40,7 +40,8 @@ class Email {
       text: htmlToText(html),
     };
 
-    await sgMail.send(mailOptions);
+    const response = await sgMail.send(mailOptions);
+    console.log(response, 'Response');
   }
 
   async sendPasswordReset() {
