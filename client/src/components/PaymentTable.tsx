@@ -5,11 +5,11 @@ import { format } from "date-fns";
 
 const getStatusBadgeColor = (status: string) => {
   switch (status) {
-    case "pending":
+    case "Pending":
       return "bg-primary-blue text-white";
-    case "completed":
+    case "Completed":
       return "bg-primary-green text-white";
-    case "failed":
+    case "Failed":
       return "bg-primary-red text-white";
     default:
       return "bg-secondary-grey text-white";
