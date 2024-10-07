@@ -1,3 +1,4 @@
+import path from 'path';
 import ejs from 'ejs';
 import { htmlToText } from 'html-to-text';
 import sgMail from '@sendgrid/mail';
@@ -29,9 +30,10 @@ class Email {
 
     const html = await ejs.renderFile(
       // eslint-disable-next-line no-undef
-      `${__dirname}/../views/${template}.ejs`,
+      path.resolve(__dirname, '..', 'views', `${template}.ejs`),
       email,
     );
+
     const mailOptions = {
       from: this.from,
       to: this.to,

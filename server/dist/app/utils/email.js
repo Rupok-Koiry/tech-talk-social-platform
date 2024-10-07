@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = __importDefault(require("path"));
 const ejs_1 = __importDefault(require("ejs"));
 const html_to_text_1 = require("html-to-text");
 const mail_1 = __importDefault(require("@sendgrid/mail"));
@@ -33,7 +34,7 @@ class Email {
             };
             const html = yield ejs_1.default.renderFile(
             // eslint-disable-next-line no-undef
-            `${__dirname}/../views/${template}.ejs`, email);
+            path_1.default.resolve(__dirname, '..', 'views', `${template}.ejs`), email);
             const mailOptions = {
                 from: this.from,
                 to: this.to,
@@ -41,7 +42,8 @@ class Email {
                 html,
                 text: (0, html_to_text_1.htmlToText)(html),
             };
-            yield mail_1.default.send(mailOptions);
+            const response = yield mail_1.default.send(mailOptions);
+            console.log(response, 'Response');
         });
     }
     sendPasswordReset() {

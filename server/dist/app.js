@@ -9,16 +9,11 @@ const express_1 = __importDefault(require("express"));
 const errorHandler_1 = __importDefault(require("./app/middlewares/errorHandler"));
 const notFound_1 = __importDefault(require("./app/middlewares/notFound"));
 const routes_1 = __importDefault(require("./app/routes"));
-const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
 // Middleware for parsing JSON bodies
 app.use(express_1.default.json());
 // Middleware for parsing cookies
 app.use((0, cookie_parser_1.default)());
-// Set the template engine to EJS
-app.set('view engine', 'ejs');
-// eslint-disable-next-line no-undef
-app.set('views', path_1.default.join(__dirname, 'views'));
 // Middleware for enabling Cross-Origin Resource Sharing (CORS) for specified origins
 app.use((0, cors_1.default)({
     origin: [
