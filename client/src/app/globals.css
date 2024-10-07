@@ -70,7 +70,7 @@ body {
   bottom: -150px;
   background-color: rgba(66, 165, 245, 0.6); /* Light blue transparent */
   border-radius: 50%;
-  animation: rise 10s infinite ease-in;
+  animation: rise 6s infinite ease-in;
   opacity: 0;
 }
 
@@ -247,4 +247,8 @@ body {
     transform: translateY(-1000px);
     opacity: 0;
   }
+}
+
+div::-webkit-scrollbar {
+  width: 0;
 }

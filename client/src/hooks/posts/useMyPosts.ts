@@ -13,9 +13,9 @@ export function useMyPosts() {
 
   const { data, error, fetchNextPage, hasNextPage, isLoading } =
     useInfiniteQuery({
-      queryKey: ["my-posts", filters],
+      queryKey: ["posts", filters],
       queryFn: ({ pageParam }) =>
-        getMyPosts({ ...filters, page: pageParam, limit: 50 }),
+        getMyPosts({ ...filters, page: pageParam, limit: 100 }),
       initialPageParam: 1,
       getNextPageParam: (lastPage, allPages) => {
         if (lastPage.length === 0) return;

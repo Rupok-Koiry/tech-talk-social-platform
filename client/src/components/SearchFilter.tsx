@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useCategories } from "@/hooks/categories/useCategories";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useDebounce } from "use-debounce";
+import Button from "./Button";
 
 const SearchFilter = () => {
   const { categories } = useCategories();
@@ -60,12 +61,9 @@ const SearchFilter = () => {
         </div>
       </div>
       <div className="flex justify-end mt-3">
-        <button
-          onClick={handleSubmit}
-          className="px-4 py-2 bg-primary-blue text-white rounded-md shadow-sm"
-        >
+        <Button onClick={handleSubmit} className="text-sm">
           Apply Filters
-        </button>
+        </Button>
       </div>
     </div>
   );

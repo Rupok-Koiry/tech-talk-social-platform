@@ -1,4 +1,5 @@
 "use client";
+import ErrorMessage from "@/components/ErrorMessage";
 import Greeting from "@/components/Greeting";
 import Post from "@/components/Post";
 import PublishPost from "@/components/PublishPost";
@@ -13,7 +14,7 @@ const Feeds = () => {
   const { posts, isLoading, fetchNextPage, hasNextPage } = usePosts();
 
   return (
-    <div className="container mx-auto bg-primary-background px-5 py-4">
+    <div className="container mx-auto bg-primary-background px-5 py-4 mb-auto">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Left Sidebar */}
         <div className="hidden lg:block space-y-6 order-2 lg:order-1 md:col-span-1">
@@ -28,9 +29,10 @@ const Feeds = () => {
             <PublishPost />
           </div>
           <SearchFilter />
-
           {isLoading ? (
             <Spinner className="my-4" />
+          ) : posts?.length === 0 ? (
+            <ErrorMessage message={"No Posts Found"} />
           ) : (
             <InfiniteScroll
               key={posts?.length}

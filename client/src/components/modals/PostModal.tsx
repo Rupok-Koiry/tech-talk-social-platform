@@ -157,7 +157,7 @@ const PostModal: React.FC<PostModalProps> = ({
               {post ? "Edit Post" : "Add New Post"}
             </h2>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <label className="block text-sm font-medium text-primary-text">
                   Title
                 </label>
@@ -174,7 +174,7 @@ const PostModal: React.FC<PostModalProps> = ({
                 )}
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <label className="block text-sm font-medium text-primary-text">
                   Category
                 </label>
@@ -199,13 +199,14 @@ const PostModal: React.FC<PostModalProps> = ({
                   </p>
                 )}
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <label className="block text-sm font-medium text-primary-text">
                   Content
                 </label>
                 <Controller
                   name="content"
                   control={control}
+                  rules={{ required: "Content is required" }}
                   render={({ field }) => (
                     <ReactQuill
                       {...field}
@@ -222,7 +223,7 @@ const PostModal: React.FC<PostModalProps> = ({
                 )}
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <label className="block text-sm font-medium text-primary-text">
                   Images
                 </label>
