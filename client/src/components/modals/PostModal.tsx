@@ -20,7 +20,7 @@ interface PostModalProps {
   modalIsOpen: boolean;
   setModalIsOpen: (value: boolean) => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  post: any | null;
+  post?: any | null;
 }
 
 interface FormData {

@@ -79,6 +79,7 @@ const PostTable = () => {
           </tr>
         </thead>
         <tbody className="bg-primary-background">
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           {posts?.map((post: any, index: number) => (
             <tr
               key={post._id}
