@@ -35,7 +35,7 @@ const userSchema = new Schema<TUser>(
     profilePic: {
       type: String,
       default:
-        'https://res.cloudinary.com/djkdk03mf/image/upload/v1728217863/9187604_cax0g7.png',
+        'https://res.cloudinary.com/djkdk03mf/image/upload/v1728307083/bg_awus4k.png',
     },
     isVerified: {
       type: Boolean,
