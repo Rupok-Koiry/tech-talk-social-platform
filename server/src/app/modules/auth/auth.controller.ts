@@ -106,8 +106,6 @@ export const forgotPassword = catchAsync(async (req, res, next) => {
 
 // Reset Password route controller
 export const resetPassword = catchAsync(async (req, res, next) => {
-  console.log(req.params.token);
-
   // 1) Get the user based on the token
   const hashedToken = crypto
     .createHash('sha256')
