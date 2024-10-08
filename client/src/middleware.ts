@@ -5,7 +5,12 @@ import { cookies } from "next/headers";
 
 type Role = "user" | "admin";
 
-const AuthRoutes = ["/sign-in", "/sign-up"];
+const AuthRoutes = [
+  "/sign-in",
+  "/sign-up",
+  "/forgot-password",
+  "/reset-password",
+];
 
 const roleBasedRoutes: Record<Role, (string | RegExp)[]> = {
   user: [/^\/dashboard\/user/, "/feeds"],
