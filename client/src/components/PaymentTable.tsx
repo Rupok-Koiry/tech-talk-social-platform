@@ -7,7 +7,7 @@ const getStatusBadgeColor = (status: string) => {
   switch (status) {
     case "pending":
       return "bg-primary-blue text-white";
-    case "Completed":
+    case "completed":
       return "bg-primary-green text-white";
     case "failed":
       return "bg-primary-red text-white";

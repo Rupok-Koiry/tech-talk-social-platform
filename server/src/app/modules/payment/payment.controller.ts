@@ -76,7 +76,7 @@ export const paymentSuccess = catchAsync(async (req, res) => {
     User.findByIdAndUpdate(userId, { isVerified: true }),
     Payment.findOneAndUpdate(
       { tran_id: transactionId },
-      { payment_status: 'Completed' },
+      { payment_status: 'completed' },
     ),
   ]);
 
