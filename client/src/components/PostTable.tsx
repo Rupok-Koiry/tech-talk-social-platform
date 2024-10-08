@@ -8,7 +8,6 @@ import PostModal from "./modals/PostModal";
 import ErrorMessage from "./ErrorMessage";
 import Spinner from "./Spinner";
 import { useMe } from "@/hooks/auth/useMe";
-import { useMyPosts } from "@/hooks/posts/useMyPosts";
 import InfiniteScroll from "react-infinite-scroller";
 
 const getStatusBadgeColor = (status: boolean) => {
@@ -25,27 +24,18 @@ const getStatusBadgeColor = (status: boolean) => {
 const PostTable = () => {
   const { user } = useMe();
   const {
-    posts: adminPosts,
-    error: adminError,
-    isLoading: adminIsLoading,
-    fetchNextPage: fetchNextAdminPage,
-    hasNextPage: adminHasNextPage,
+    posts: allPosts,
+    error,
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
   } = usePosts();
+  console.log(allPosts);
 
-  const {
-    posts: myPosts,
-    error: myError,
-    isLoading: myIsLoading,
-    fetchNextPage: fetchNextMyPage,
-    hasNextPage: myHasNextPage,
-  } = useMyPosts();
-
-  const posts = user?.role === "admin" ? adminPosts : myPosts;
-  const error = user?.role === "admin" ? adminError : myError;
-  const isLoading = user?.role === "admin" ? adminIsLoading : myIsLoading;
-  const fetchNextPage =
-    user?.role === "admin" ? fetchNextAdminPage : fetchNextMyPage;
-  const hasNextPage = user?.role === "admin" ? adminHasNextPage : myHasNextPage;
+  const posts =
+    user?.role === "admin"
+      ? allPosts
+      : allPosts.filter((post) => post.author._id === user._id);
 
   const { deletePost } = useDeletePost();
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
