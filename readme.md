@@ -1,6 +1,6 @@
-# Tch Talk - A social platform
+# Tech Talk - A social platform
 
-Welcome to **Tch Talk**! This guide will help you set up and run both the server and client sides of the Tech Talk System application locally on your machine.
+Welcome to **Tech Talk**! This guide will help you set up and run both the server and client sides of the Tech Talk System application locally on your machine.
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ The "Tech Talk" project is a dynamic full-stack web application designed to help
 
 ## Live URL
 
-Check out the live version of the application here: [Tch Talk](https://ph-assignment-06-client.vercel.app/)
+Check out the live version of the application here: [Tech Talk](https://ph-assignment-06-client.vercel.app/)
 
 ## Features
 
@@ -134,6 +134,5 @@ cd client
 npm start
 ```
 
-The client will be accessible at http://localhost:5176.
-
-Thank you for using **Tch Talk**! Happy Coding!
+The client will be accessible at http://localhost:3000.
+Thank you for using **Tech Talk**! Happy Coding!
