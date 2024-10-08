@@ -5,12 +5,7 @@ import { cookies } from "next/headers";
 
 type Role = "user" | "admin";
 
-const AuthRoutes = [
-  "/sign-in",
-  "/sign-up",
-  "/forgot-password",
-  "/reset-password",
-];
+const AuthRoutes = ["/sign-in", "/sign-up", "/forgot-password"];
 
 const roleBasedRoutes: Record<Role, (string | RegExp)[]> = {
   user: [/^\/dashboard\/user/, "/feeds"],
@@ -50,5 +45,11 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*", "/feeds", "/sign-in", "/sign-up"],
+  matcher: [
+    "/dashboard/:path*",
+    "/feeds",
+    "/sign-in",
+    "/sign-up",
+    "/forgot-password",
+  ],
 };
