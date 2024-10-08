@@ -16,7 +16,7 @@ const Greeting = () => {
         <Image
           src={user?.profilePic}
           alt="avatar"
-          className="w-14 h-14 rounded-full"
+          className="w-14 h-14 rounded-full object-cover"
           width={56}
           height={56}
         />

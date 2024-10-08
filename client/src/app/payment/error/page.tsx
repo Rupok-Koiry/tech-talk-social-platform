@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FiRefreshCw } from "react-icons/fi";
 
@@ -31,10 +32,13 @@ const page = () => {
 
         {/* Interactive Buttons */}
         <div className="flex space-x-4">
-          <button className="bg-primary-blue text-white py-2 px-6 rounded-lg flex items-center hover:bg-[#128ef2] transition ease-in duration-300">
+          <Link
+            href="/dashboard/user/payment"
+            className="bg-primary-blue text-white py-2 px-6 rounded-lg flex items-center hover:bg-[#128ef2] transition ease-in duration-300"
+          >
             Retry Payment
             <FiRefreshCw className="ml-2" size={20} />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

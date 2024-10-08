@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 
@@ -31,14 +32,20 @@ const page = () => {
 
         {/* Interactive Buttons */}
         <div className="flex space-x-4">
-          <button className="bg-white border border-primary-blue text-primary-blue py-2 px-6 rounded-lg flex items-center hover:bg-primary-blue hover:text-white transition ease-in duration-300">
+          <Link
+            href="/dashboard/user"
+            className="bg-white border border-primary-blue text-primary-blue py-2 px-6 rounded-lg flex items-center hover:bg-primary-blue hover:text-white transition ease-in duration-300"
+          >
             Back to Dashboard
             <FiArrowRight className="ml-2" size={20} />
-          </button>
-          <button className="bg-primary-blue text-white py-2 px-6 rounded-lg flex items-center hover:bg-[#128ef2] transition ease-in duration-300">
+          </Link>
+          <Link
+            href="/"
+            className="bg-primary-blue text-white py-2 px-6 rounded-lg flex items-center hover:bg-[#128ef2] transition ease-in duration-300"
+          >
             Back to Home
             <FiArrowRight className="ml-2" size={20} />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
