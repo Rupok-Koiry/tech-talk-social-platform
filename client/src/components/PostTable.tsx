@@ -35,7 +35,7 @@ const PostTable = () => {
   const posts =
     user?.role === "admin"
       ? allPosts
-      : allPosts.filter((post) => post.author._id === user._id);
+      : allPosts.filter((post) => post.author._id === user?._id);
 
   const { deletePost } = useDeletePost();
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
