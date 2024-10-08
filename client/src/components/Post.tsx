@@ -34,7 +34,9 @@ const Post = ({ post }: any) => {
       </div>
       <Link
         href={
-          canAccessPremium ? `/post/${post._id}` : "/dashboard/user/payment"
+          !canAccessPremium && post.isPremium
+            ? "/dashboard/user/payment"
+            : `/post/${post._id}`
         }
       >
         <div className="mt-4">
