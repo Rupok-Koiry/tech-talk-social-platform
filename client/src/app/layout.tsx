@@ -5,6 +5,7 @@ import Provider from "@/utils/Provider";
 import Spinner from "@/components/Spinner";
 import { Suspense } from "react";
 import { ThemeProvider } from "next-themes";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,13 +34,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider attribute="class">
-          <main className="min-h-screen flex flex-col justify-between">
-            <Provider>
-              <Suspense fallback={<Spinner />}>{children}</Suspense>
-            </Provider>
-          </main>
-        </ThemeProvider>
+        <GoogleOAuthProvider
+          clientId={
+            "553164720977-7i4dh52dbimn0q3j1jr7s4vbaapi2gkn.apps.googleusercontent.com"
+          }
+        >
+          <ThemeProvider attribute="class">
+            <main className="min-h-screen flex flex-col justify-between">
+              <Provider>
+                <Suspense fallback={<Spinner />}>{children}</Suspense>
+              </Provider>
+            </main>
+          </ThemeProvider>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );
