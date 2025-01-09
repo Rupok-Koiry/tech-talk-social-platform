@@ -60,13 +60,13 @@ exports.getPost = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0
     });
 }));
 exports.getAllPosts = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    // APi features
+    // API Features
     const features = new apiFeatures_1.default(post_model_1.default.find(), req.query)
         .filter()
         .sort()
         .limitFields()
         .paginate();
-    // POPULATE
+    // Populate the query
     const posts = yield features.query
         .populate('author category', 'name email profilePic')
         .lean();
@@ -75,7 +75,17 @@ exports.getAllPosts = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
         const commentCount = yield comment_model_1.default.countDocuments({ post: post._id });
         return Object.assign(Object.assign({}, post), { totalComments: commentCount });
     })));
-    // SEND RESPONSE
+    // Check for `sort` query parameter
+    const { sort } = req.query;
+    if (sort === '-upvotes') {
+        // Sort in descending order of upvote count
+        postsWithCommentCount.sort((a, b) => b.upvotes.length - a.upvotes.length);
+    }
+    else if (sort === 'upvotes') {
+        // Sort in ascending order of upvote count
+        postsWithCommentCount.sort((a, b) => a.upvotes.length - b.upvotes.length);
+    }
+    // Send response
     res.status(http_status_1.default.OK).json({
         success: true,
         statusCode: http_status_1.default.OK,

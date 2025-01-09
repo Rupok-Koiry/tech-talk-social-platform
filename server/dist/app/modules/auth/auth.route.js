@@ -12,5 +12,6 @@ router.post('/signup', auth_controller_1.signup);
 router.post('/signin', auth_controller_1.signin);
 router.get('/logout', auth_controller_1.logout);
 router.post('/forgot-password', auth_controller_1.forgotPassword);
+router.post('/login-with-social-media', auth_controller_1.loginWithSocialMedia);
 router.patch('/reset-password/:token', auth_controller_1.resetPassword);
 exports.AuthRoutes = router;

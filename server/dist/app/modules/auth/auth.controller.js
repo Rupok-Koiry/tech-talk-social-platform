@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resetPassword = exports.forgotPassword = exports.logout = exports.signin = exports.signup = void 0;
+exports.resetPassword = exports.forgotPassword = exports.logout = exports.signin = exports.signup = exports.loginWithSocialMedia = void 0;
 const http_status_1 = __importDefault(require("http-status"));
 const crypto_1 = __importDefault(require("crypto"));
 const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
@@ -20,7 +20,18 @@ const user_model_1 = __importDefault(require("../user/user.model"));
 const AppError_1 = __importDefault(require("../../errors/AppError"));
 const auth_utils_1 = require("./auth.utils");
 const email_1 = __importDefault(require("../../utils/email"));
-// Destructure important variables from the config
+// Login with Social Media route controller
+exports.loginWithSocialMedia = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email } = req.body;
+    const user = yield user_model_1.default.findOne({ email });
+    if (user) {
+        (0, auth_utils_1.createAndSendToken)(user, res);
+    }
+    else {
+        const newUser = yield user_model_1.default.create(req.body);
+        (0, auth_utils_1.createAndSendToken)(newUser, res);
+    }
+}));
 // Route handler for user signup
 exports.signup = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // Create a new user with the provided data
@@ -90,7 +101,6 @@ exports.forgotPassword = (0, catchAsync_1.default)((req, res, next) => __awaiter
 }));
 // Reset Password route controller
 exports.resetPassword = (0, catchAsync_1.default)((req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.params.token);
     // 1) Get the user based on the token
     const hashedToken = crypto_1.default
         .createHash('sha256')

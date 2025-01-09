@@ -105,7 +105,7 @@ exports.paymentSuccess = (0, catchAsync_1.default)((req, res) => __awaiter(void 
     const { userId, transactionId } = req.params;
     yield Promise.all([
         user_model_1.default.findByIdAndUpdate(userId, { isVerified: true }),
-        payment_model_1.default.findOneAndUpdate({ tran_id: transactionId }, { payment_status: 'Completed' }),
+        payment_model_1.default.findOneAndUpdate({ tran_id: transactionId }, { payment_status: 'completed' }),
     ]);
     res.redirect(`${process.env.CLIENT_URL}/payment/success`);
 }));
