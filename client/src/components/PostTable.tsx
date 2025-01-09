@@ -13,11 +13,11 @@ import InfiniteScroll from "react-infinite-scroller";
 const getStatusBadgeColor = (status: boolean) => {
   switch (status) {
     case true:
-      return "bg-primary-green text-white";
+      return "bg-primary-green text-primary-background";
     case false:
-      return "bg-primary-red text-white";
+      return "bg-primary-red text-primary-background";
     default:
-      return "bg-secondary-grey text-white";
+      return "bg-secondary-grey text-primary-background";
   }
 };
 

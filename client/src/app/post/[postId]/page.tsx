@@ -118,7 +118,7 @@ const PostDetails = () => {
     <div className="container mx-auto">
       <div className="max-w-6xl mx-auto px-5 py-4">
         <div
-          className="bg-white rounded-lg p-6 shadow-md space-y-6"
+          className="bg-primary-background rounded-lg p-6 shadow-md space-y-6"
           ref={targetRef}
         >
           {/* Post Title */}
@@ -213,7 +213,7 @@ const PostDetails = () => {
                       <div className="mt-2 flex justify-end space-x-2">
                         <button
                           onClick={handleUpdateComment}
-                          className="px-3 py-1 bg-primary-blue text-white rounded-md"
+                          className="px-3 py-1 bg-primary-blue text-primary-background rounded-md"
                           disabled={isUpdating}
                         >
                           {isUpdating ? "Updating..." : "Update"}
@@ -234,16 +234,16 @@ const PostDetails = () => {
                       <div className="mt-2 flex justify-end space-x-2">
                         <button
                           onClick={() => handleEditComment(comment)}
-                          className="px-3 py-1 bg-primary-blue text-white rounded-md border border-primary-blue
-                        hover:bg-white hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300
+                          className="px-3 py-1 bg-primary-blue text-primary-background rounded-md border border-primary-blue
+                        hover:bg-primary-background hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300
                         "
                         >
                           <FaEdit />
                         </button>
                         <button
                           onClick={() => handleDeleteComment(comment._id)}
-                          className="px-3 py-1 bg-primary-red text-white rounded-md border border-primary-red
-                        hover:bg-white hover:text-primary-red hover:border-primary-blue transition ease-in-out duration-300
+                          className="px-3 py-1 bg-primary-red text-primary-background rounded-md border border-primary-red
+                        hover:bg-primary-background hover:text-primary-red hover:border-primary-blue transition ease-in-out duration-300
                         "
                           disabled={isDeleting}
                         >
@@ -269,8 +269,8 @@ const PostDetails = () => {
             <div className="flex justify-end items-center p-2 gap-2 w-full">
               <button
                 type="submit"
-                className="px-3 py-1.5 bg-primary-blue text-white rounded-md border border-primary-blue
-                hover:bg-white hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300"
+                className="px-3 py-1.5 bg-primary-blue text-primary-background rounded-md border border-primary-blue
+                hover:bg-primary-background hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300"
                 disabled={isCreating}
               >
                 {isCreating ? (

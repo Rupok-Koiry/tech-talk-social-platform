@@ -3,7 +3,7 @@ import React from "react";
 const page = () => {
   return (
     <div className="px-4">
-      <section className="container max-w-6xl px-5 mx-auto py-8 lg:py-10 bg-white rounded-lg shadow-md my-4 md:my-12">
+      <section className="container max-w-6xl px-5 mx-auto py-8 lg:py-10 bg-primary-background rounded-lg shadow-md my-4 md:my-12">
         <h2 className="text-3xl font-bold mb-6">Privacy Policy</h2>
         <p className="mb-4">
           Welcome to Tech Tips & Tricks. This Privacy Policy outlines how we

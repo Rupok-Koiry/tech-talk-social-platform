@@ -56,7 +56,7 @@ const SignIn: React.FC = () => {
                   message: "Invalid email format",
                 },
               })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
             />
             {errors.email && (
               <p className="text-primary-red text-xs">{errors.email.message}</p>
@@ -75,7 +75,7 @@ const SignIn: React.FC = () => {
                   message: "Password must be at least 6 characters",
                 },
               })}
-              className="w-full mb-0.5  rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+              className="w-full mb-0.5  rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background "
             />
             {errors.password && (
               <p className="text-primary-red text-xs">

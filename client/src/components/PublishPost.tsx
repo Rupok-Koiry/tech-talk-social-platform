@@ -13,11 +13,11 @@ const PublishPost = () => {
         <input
           type="text"
           placeholder="Write a post..."
-          className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+          className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
         />
         <button
-          className="px-3 py-1.5 bg-primary-blue text-white rounded-md border border-primary-blue
-              hover:bg-white hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300"
+          className="px-3 py-1.5 bg-primary-blue text-primary-background rounded-md border border-primary-blue
+              hover:bg-primary-background hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300"
         >
           Publish
         </button>

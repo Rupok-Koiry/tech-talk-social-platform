@@ -23,14 +23,14 @@ const SearchFilter = () => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md">
+    <div className="bg-primary-background p-4 rounded-lg shadow-md">
       <div className="mb-4">
         <input
           type="text"
           placeholder="Search..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+          className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
         />
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">

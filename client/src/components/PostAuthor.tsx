@@ -104,8 +104,8 @@ const PostAuthor: React.FC<PostAuthorProps> = ({ author, postCreatedAt }) => {
       {user && user._id !== author._id && (
         <button
           onClick={handleFollowUnfollow}
-          className=" px-2 md:px-3 text-sm md:text-base py-1 bg-primary-blue text-white rounded-md border border-primary-blue items-center
-          hover:bg-white hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300 flex space-x-2
+          className=" px-2 md:px-3 text-sm md:text-base py-1 bg-primary-blue text-primary-background rounded-md border border-primary-blue items-center
+          hover:bg-primary-background hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300 flex space-x-2
           "
         >
           {isFollowing ? <FiUserMinus /> : <FiUserPlus />}

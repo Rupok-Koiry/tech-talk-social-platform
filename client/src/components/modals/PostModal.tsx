@@ -164,7 +164,7 @@ const PostModal: React.FC<PostModalProps> = ({
                 <input
                   type="text"
                   {...register("title", { required: "Title is required" })}
-                  className="w-full border-secondary-grey rounded-md shadow-sm focus:border-primary-orange border outline-none py-1.5 lg:py-2 px-3"
+                  className="w-full border-secondary-grey rounded-md shadow-sm focus:border-primary-orange border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
                   placeholder="Enter post title"
                 />
                 {errors.title && (

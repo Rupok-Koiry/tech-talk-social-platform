@@ -17,7 +17,7 @@ const page = () => {
         </div>
 
         <main className="container mx-auto px-4 py-5">
-          <section className="bg-white p-6 rounded-lg shadow-md mb-4 md:mb-12">
+          <section className="bg-primary-background p-6 rounded-lg shadow-md mb-4 md:mb-12">
             <h2 className="text-3xl font-semibold mb-2 md:mb-4 text-primary-text">
               Our Story
             </h2>
@@ -48,7 +48,7 @@ const page = () => {
           </section>
 
           <section className="grid md:grid-cols-3 gap-8 mb-4 md:mb-12">
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="bg-primary-background p-6 rounded-lg shadow-md">
               <FaUserSecret className="w-12 h-12 text-primary-blue mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-primary-text">
                 Our Team
@@ -61,7 +61,7 @@ const page = () => {
                 digital landscape with confidence.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="bg-primary-background p-6 rounded-lg shadow-md">
               <GiLightBulb className="w-12 h-12 text-primary-blue mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-primary-text">
                 Our Mission
@@ -73,7 +73,7 @@ const page = () => {
                 new technologies with ease.
               </p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="bg-primary-background p-6 rounded-lg shadow-md">
               <FiTarget className="w-12 h-12 text-primary-blue mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-primary-text">
                 Our Vision
@@ -87,7 +87,7 @@ const page = () => {
             </div>
           </section>
 
-          <section className="bg-white p-6 rounded-lg shadow-md mb-4 md:mb-12">
+          <section className="bg-primary-background p-6 rounded-lg shadow-md mb-4 md:mb-12">
             <h2 className="text-3xl font-semibold mb-6 text-primary-text">
               What We Offer
             </h2>

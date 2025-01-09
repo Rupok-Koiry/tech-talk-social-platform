@@ -18,14 +18,14 @@ const Feeds = () => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Left Sidebar */}
         <div className="hidden lg:block space-y-6 order-2 lg:order-1 md:col-span-1">
-          <div className="bg-white rounded-lg p-4 shadow-md">
+          <div className="bg-primary-background rounded-lg p-4 shadow-md">
             <WeatherWidget />
           </div>
         </div>
 
         {/* Main Content */}
         <div className="space-y-6 order-3 lg:order-2 lg:col-span-2">
-          <div className="bg-white rounded-lg p-4 shadow-md">
+          <div className="bg-primary-background rounded-lg p-4 shadow-md">
             <PublishPost />
           </div>
           <SearchFilter />

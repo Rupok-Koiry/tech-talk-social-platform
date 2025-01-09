@@ -17,7 +17,7 @@ const Post = ({ post }: any) => {
 
   return (
     <div
-      className={`bg-white rounded-lg p-6 shadow-lg transition-all duration-300 ${
+      className={`bg-primary-background rounded-lg p-6 shadow-lg transition-all duration-300 ${
         isPremium
           ? "border-2 border-yellow-400 hover:shadow-xl"
           : "hover:shadow-md"
@@ -52,7 +52,7 @@ const Post = ({ post }: any) => {
           />
           {isPremium && !canAccessPremium && (
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <div className="text-white text-center">
+              <div className="text-primary-background text-center">
                 <IoMdLock className="mx-auto mb-2" size={24} />
                 <p className="font-semibold">Premium Content</p>
                 <p className="text-sm">Verify your account to access</p>

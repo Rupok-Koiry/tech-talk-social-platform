@@ -123,7 +123,7 @@ const page = () => {
                     type="text"
                     id="name"
                     placeholder="Your name"
-                    className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+                    className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
                     name="name"
                   />
                 </div>
@@ -136,7 +136,7 @@ const page = () => {
                     type="email"
                     id="email"
                     placeholder="Your email address"
-                    className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+                    className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
                     name="email"
                   />
                 </div>
@@ -152,7 +152,7 @@ const page = () => {
                   cols={30}
                   rows={5}
                   placeholder="Write your message..."
-                  className="w-full mb-0.5 border-secondary-grey rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+                  className="w-full mb-0.5 border-secondary-grey rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
                 ></textarea>
               </div>
             </div>

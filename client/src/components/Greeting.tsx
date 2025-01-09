@@ -11,7 +11,7 @@ const Greeting = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <div className="p-4 bg-white shadow-md rounded-lg flex xl:flex-row flex-col justify-start items-center space-x-2 gap-3">
+    <div className="p-4 bg-primary-background shadow-md rounded-lg flex xl:flex-row flex-col justify-start items-center space-x-2 gap-3">
       <div className="relative border border-primary-blue p-1 rounded-full cursor-pointer">
         <Image
           src={user?.profilePic}
@@ -21,7 +21,7 @@ const Greeting = () => {
           height={56}
         />
         {user?.isVerified && (
-          <FaCheckCircle className="absolute top-1 left-12 text-[#128ef2] text-xl" />
+          <FaCheckCircle className="absolute top-1 left-12 text-primary-blue text-xl" />
         )}
       </div>
       <div className="flex flex-col gap-0.5">

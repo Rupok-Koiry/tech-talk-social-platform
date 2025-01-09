@@ -77,7 +77,7 @@ const WeatherWidget = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-primary-blue to-secondary-background text-white p-6 rounded-lg shadow-lg max-w-sm mx-auto">
+    <div className="bg-gradient-to-br from-primary-blue to-secondary-background text-primary-background p-6 rounded-lg shadow-lg max-w-sm mx-auto">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h2 className="text-3xl font-bold">{Math.round(currentTemp)}°F</h2>

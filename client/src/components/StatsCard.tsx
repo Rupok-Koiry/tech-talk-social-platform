@@ -15,7 +15,7 @@ const StatsCard = ({
 }: StatsCardProps) => {
   return (
     <div
-      className={`relative bg-white rounded-lg shadow-lg p-6 border-l-4 ${borderColor} transition-transform transform hover:scale-105 hover:shadow-xl`}
+      className={`relative bg-primary-background rounded-lg shadow-lg p-6 border-l-4 ${borderColor} transition-transform transform hover:scale-105 hover:shadow-xl`}
     >
       <div className={`flex items-center justify-between mb-4`}>
         <div className={`text-3xl ${textColor}`}>{icon}</div>

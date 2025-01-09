@@ -50,7 +50,7 @@ const SignUp: React.FC = () => {
             <input
               type="text"
               {...register("name", { required: "Name is required" })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
             />
             {errors.name && (
               <p className="text-primary-red text-xs">*{errors.name.message}</p>
@@ -70,7 +70,7 @@ const SignUp: React.FC = () => {
                   message: "Invalid email format",
                 },
               })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
             />
             {errors.email && (
               <p className="text-primary-red text-xs">
@@ -92,7 +92,7 @@ const SignUp: React.FC = () => {
                   message: "Password must be at least 6 characters",
                 },
               })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
             />
             {errors.password && (
               <p className="text-primary-red text-xs">
@@ -112,7 +112,7 @@ const SignUp: React.FC = () => {
                 validate: (value, { password }) =>
                   value === password || "Passwords must match",
               })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
             />
             {errors.confirmPassword && (
               <p className="text-primary-red text-xs">
@@ -128,7 +128,7 @@ const SignUp: React.FC = () => {
             <input
               type="text"
               {...register("phone")}
-              className="w-full mb-0.5  rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3"
+              className="w-full mb-0.5  rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
             />
           </div>
 
@@ -138,7 +138,7 @@ const SignUp: React.FC = () => {
               {...register("terms", {
                 required: "You must accept the terms and conditions",
               })}
-              className="w-4 h-4 accent-primary-blue text-white  rounded focus:ring-primary-blue"
+              className="w-4 h-4 accent-primary-blue text-primary-background  rounded focus:ring-primary-blue"
             />
             <label className="ml-2 block text-sm text-primary-text">
               I agree to the{" "}

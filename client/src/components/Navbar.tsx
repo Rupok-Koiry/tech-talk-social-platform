@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-sm py-4">
+    <nav className="bg-primary-background shadow-sm py-4">
       <div className="container mx-auto px-5">
         <div className="flex justify-between items-center">
           <div className="flex">
@@ -56,8 +56,8 @@ const Navbar = () => {
                 </Link>
                 <button
                   onClick={() => logout()}
-                  className="px-3 py-1 bg-primary-blue text-white rounded-md border border-primary-blue
-                    hover:bg-white hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300
+                  className="px-3 py-1 bg-primary-blue text-primary-background rounded-md border border-primary-blue
+                    hover:bg-primary-background hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300
                     "
                 >
                   Logout
@@ -66,8 +66,8 @@ const Navbar = () => {
             ) : (
               <Link
                 href="/sign-in"
-                className="px-3 py-1 bg-primary-blue text-white rounded-md border border-primary-blue
-                  hover:bg-white hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300
+                className="px-3 py-1 bg-primary-blue text-primary-background rounded-md border border-primary-blue
+                  hover:bg-primary-background hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300
                   "
               >
                 Login
@@ -95,7 +95,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white px-5 py-4 space-y-4"
+            className="md:hidden bg-primary-background px-5 py-4 space-y-4"
           >
             <Link
               href="/about"
@@ -125,8 +125,8 @@ const Navbar = () => {
                     logout();
                     toggleMobileMenu();
                   }}
-                  className="w-full text-left px-3 py-1 bg-primary-blue text-white rounded-md border border-primary-blue
-                    hover:bg-white hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300
+                  className="w-full text-left px-3 py-1 bg-primary-blue text-primary-background rounded-md border border-primary-blue
+                    hover:bg-primary-background hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300
                     "
                 >
                   Logout
@@ -135,8 +135,8 @@ const Navbar = () => {
             ) : (
               <Link
                 href="/sign-in"
-                className="block w-full text-left px-3 py-1 bg-primary-blue text-white rounded-md border border-primary-blue
-                  hover:bg-white hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300
+                className="block w-full text-left px-3 py-1 bg-primary-blue text-primary-background rounded-md border border-primary-blue
+                  hover:bg-primary-background hover:text-primary-blue hover:border-primary-blue transition ease-in-out duration-300
                   "
                 onClick={toggleMobileMenu}
               >

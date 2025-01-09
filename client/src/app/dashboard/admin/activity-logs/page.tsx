@@ -7,11 +7,11 @@ import { format } from "date-fns";
 const getRoleBadgeColor = (role: string) => {
   switch (role) {
     case "admin":
-      return "bg-primary-blue text-white";
+      return "bg-primary-blue text-primary-background";
     case "user":
-      return "bg-primary-green text-white";
+      return "bg-primary-green text-primary-background";
     default:
-      return "bg-secondary-red text-white";
+      return "bg-secondary-red text-primary-background";
   }
 };
 

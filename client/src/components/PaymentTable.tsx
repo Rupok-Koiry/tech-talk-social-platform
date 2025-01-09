@@ -6,13 +6,13 @@ import { format } from "date-fns";
 const getStatusBadgeColor = (status: string) => {
   switch (status) {
     case "pending":
-      return "bg-primary-blue text-white";
+      return "bg-primary-blue text-primary-background";
     case "completed":
-      return "bg-primary-green text-white";
+      return "bg-primary-green text-primary-background";
     case "failed":
-      return "bg-primary-red text-white";
+      return "bg-primary-red text-primary-background";
     default:
-      return "bg-secondary-grey text-white";
+      return "bg-secondary-grey text-primary-background";
   }
 };
 const PaymentTable = () => {

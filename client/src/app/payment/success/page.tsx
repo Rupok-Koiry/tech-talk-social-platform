@@ -5,7 +5,7 @@ import { FiArrowRight } from "react-icons/fi";
 const page = () => {
   return (
     <section className="max-w-8xl  mx-auto px-5">
-      <div className=" rounded-lg shadow-md flex flex-col items-center justify-center bg-white text-primary-text py-16 px-8">
+      <div className=" rounded-lg shadow-md flex flex-col items-center justify-center bg-primary-background text-primary-text py-16 px-8">
         {/* SVG Success Image */}
         <div className="w-32 h-32 mb-6">
           <svg
@@ -34,14 +34,14 @@ const page = () => {
         <div className="flex space-x-4">
           <Link
             href="/dashboard/user"
-            className="bg-white border border-primary-blue text-primary-blue py-2 px-6 rounded-lg flex items-center hover:bg-primary-blue hover:text-white transition ease-in duration-300"
+            className="bg-primary-background border border-primary-blue text-primary-blue py-2 px-6 rounded-lg flex items-center hover:bg-primary-blue hover:text-primary-background transition ease-in duration-300"
           >
             Back to Dashboard
             <FiArrowRight className="ml-2" size={20} />
           </Link>
           <Link
             href="/"
-            className="bg-primary-blue text-white py-2 px-6 rounded-lg flex items-center hover:bg-[#128ef2] transition ease-in duration-300"
+            className="bg-primary-blue text-primary-background py-2 px-6 rounded-lg flex items-center hover:bg-primary-text transition ease-in duration-300"
           >
             Back to Home
             <FiArrowRight className="ml-2" size={20} />

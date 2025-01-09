@@ -86,7 +86,7 @@ export default function DashboardLayout({
       {" "}
       {/* Mobile Sidebar Toggle */}
       <motion.button
-        className="lg:hidden fixed top-2/4 right-4 z-20 p-2 bg-primary-blue text-white rounded-full shadow-lg"
+        className="lg:hidden fixed top-2/4 right-4 z-20 p-2 bg-primary-blue text-primary-background rounded-full shadow-lg"
         onClick={toggleSidebar}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -178,7 +178,7 @@ export default function DashboardLayout({
                 transition={{ delay: 0.5 }}
               >
                 <motion.button
-                  className="flex items-center w-full p-3 rounded-lg bg-secondary-background text-secondary-text hover:bg-primary-blue hover:text-white transition-colors"
+                  className="flex items-center w-full p-3 rounded-lg bg-secondary-background text-secondary-text hover:bg-primary-blue hover:text-primary-background transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   disabled={isPending}
