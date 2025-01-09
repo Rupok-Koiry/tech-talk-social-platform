@@ -47,25 +47,9 @@ export const getPostsMetrics = catchAsync(async (req, res) => {
     },
   ]);
 
-  // Aggregate upvotes by post creation date
-  const upvotes = await Post.aggregate([
-    {
-      $match: {
-        createdAt: { $gte: startDate, $lte: endDate },
-      },
-    },
-    {
-      $group: {
-        _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
-        upvoteCount: { $sum: { $size: '$upvotes' } }, // Counting upvotes per post
-      },
-    },
-  ]);
-
-  // Mapping post, comment, and upvote counts by date
+  // Mapping post and comment  counts by date
   const postMap = new Map(posts.map((p) => [p._id, p.postCount]));
   const commentMap = new Map(comments.map((c) => [c._id, c.commentCount]));
-  const upvoteMap = new Map(upvotes.map((u) => [u._id, u.upvoteCount]));
 
   // Prepare the result with all three datasets
   const resultData = Array.from({ length: 30 }, (_, i) => {
@@ -77,7 +61,6 @@ export const getPostsMetrics = catchAsync(async (req, res) => {
       date: dateString,
       postCount: postMap.get(dateString) || 0,
       commentCount: commentMap.get(dateString) || 0,
-      upvoteCount: upvoteMap.get(dateString) || 0,
     };
   });
 

@@ -15,7 +15,9 @@ export function useUpdatePost() {
       queryClient.invalidateQueries({
         queryKey: ["posts"],
       });
-      toast.success("Post updated successfully");
+      queryClient.invalidateQueries({
+        queryKey: ["myPosts"],
+      });
     },
     onError: (error) => {
       toast.error(error.message);

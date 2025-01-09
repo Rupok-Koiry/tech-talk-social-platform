@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import signUpImage from "../../../assets/signup.svg";
+import SocialLogin from "@/components/SocialLogin";
 
 interface IFormInput {
   name: string;
@@ -38,7 +39,7 @@ const SignUp: React.FC = () => {
           className="w-full h-100"
         />
       </div>
-      <div className="w-full p-6 lg:p-8  shadow-lg rounded-xl bg-secondary-background">
+      <div className="w-full p-6 lg:p-8  shadow rounded-xl bg-secondary-background">
         <h2 className="text-2xl lg:text-3xl font-semibold text-center mb-3 text-primary-text">
           Sign Up
         </h2>
@@ -50,7 +51,7 @@ const SignUp: React.FC = () => {
             <input
               type="text"
               {...register("name", { required: "Name is required" })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+              className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
             />
             {errors.name && (
               <p className="text-primary-red text-xs">*{errors.name.message}</p>
@@ -70,7 +71,7 @@ const SignUp: React.FC = () => {
                   message: "Invalid email format",
                 },
               })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+              className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
             />
             {errors.email && (
               <p className="text-primary-red text-xs">
@@ -92,7 +93,7 @@ const SignUp: React.FC = () => {
                   message: "Password must be at least 6 characters",
                 },
               })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+              className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
             />
             {errors.password && (
               <p className="text-primary-red text-xs">
@@ -112,7 +113,7 @@ const SignUp: React.FC = () => {
                 validate: (value, { password }) =>
                   value === password || "Passwords must match",
               })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+              className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
             />
             {errors.confirmPassword && (
               <p className="text-primary-red text-xs">
@@ -128,7 +129,7 @@ const SignUp: React.FC = () => {
             <input
               type="text"
               {...register("phone")}
-              className="w-full mb-0.5  rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+              className="w-full mb-0.5  rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
             />
           </div>
 
@@ -163,6 +164,7 @@ const SignUp: React.FC = () => {
             Sign Up
           </Button>
 
+          <SocialLogin />
           <p className="text-sm text-center text-secondary-text font-medium">
             Already have an account?{" "}
             <Link

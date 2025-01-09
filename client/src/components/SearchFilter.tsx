@@ -22,21 +22,30 @@ const SearchFilter = () => {
     router.push(`?${queryString}`);
   };
 
+  const handleReset = () => {
+    setSearch("");
+    setUpvotes("");
+    setCategory("");
+    router.push(`?`);
+  };
+
+  const isFilterApplied = search || category || upvotes;
+
   return (
-    <div className="bg-primary-background p-4 rounded-lg shadow-md">
+    <div className="bg-secondary-background p-4 rounded-lg shadow">
       <div className="mb-4">
         <input
           type="text"
           placeholder="Search..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+          className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
         />
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
         <div className="space-y-2 w-full sm:w-1/2">
           <select
-            className="w-full border-secondary-grey rounded-md shadow-sm focus:border-primary-orange border outline-none py-1.5 lg:py-2 px-3"
+            className="w-full border-secondary-grey rounded-md shadow focus:border-primary-orange border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
@@ -50,7 +59,7 @@ const SearchFilter = () => {
         </div>
         <div className="space-y-2 w-full sm:w-1/2">
           <select
-            className="w-full border-secondary-grey rounded-md shadow-sm focus:border-primary-orange border outline-none py-1.5 lg:py-2 px-3"
+            className="w-full border-secondary-grey rounded-md shadow focus:border-primary-orange border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
             value={upvotes}
             onChange={(e) => setUpvotes(e.target.value)}
           >
@@ -60,10 +69,15 @@ const SearchFilter = () => {
           </select>
         </div>
       </div>
-      <div className="flex justify-end mt-3">
+      <div className="flex gap-3 mt-3">
         <Button onClick={handleSubmit} className="text-sm">
           Apply Filters
         </Button>
+        {isFilterApplied && (
+          <Button onClick={handleReset} className="text-sm">
+            Reset Filters
+          </Button>
+        )}
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ import ErrorMessage from "./ErrorMessage";
 import Spinner from "./Spinner";
 import { useMe } from "@/hooks/auth/useMe";
 import InfiniteScroll from "react-infinite-scroller";
+import { useMyPosts } from "@/hooks/posts/useMyPosts";
 
 const getStatusBadgeColor = (status: boolean) => {
   switch (status) {
@@ -23,19 +24,11 @@ const getStatusBadgeColor = (status: boolean) => {
 
 const PostTable = () => {
   const { user } = useMe();
-  const {
-    posts: allPosts,
-    error,
-    isLoading,
-    fetchNextPage,
-    hasNextPage,
-  } = usePosts();
-  console.log(allPosts);
+  const allPosts = usePosts();
+  const myPosts = useMyPosts();
 
-  const posts =
-    user?.role === "admin"
-      ? allPosts
-      : allPosts.filter((post) => post.author._id === user?._id);
+  const { posts, error, isLoading, fetchNextPage, hasNextPage } =
+    user?.role === "admin" ? allPosts : myPosts;
 
   const { deletePost } = useDeletePost();
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);

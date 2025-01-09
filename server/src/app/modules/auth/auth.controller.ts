@@ -7,8 +7,17 @@ import { createAndSendToken } from './auth.utils';
 import { RequestHandler } from 'express';
 import Email from '../../utils/email';
 
-// Destructure important variables from the config
-
+// Login with Social Media route controller
+export const loginWithSocialMedia = catchAsync(async (req, res) => {
+  const { email } = req.body;
+  const user = await User.findOne({ email });
+  if (user) {
+    createAndSendToken(user, res);
+  } else {
+    const newUser = await User.create(req.body);
+    createAndSendToken(newUser, res);
+  }
+});
 // Route handler for user signup
 export const signup = catchAsync(async (req, res) => {
   // Create a new user with the provided data
@@ -89,9 +98,9 @@ export const forgotPassword = catchAsync(async (req, res, next) => {
       status: 'success',
       message: 'Token sent to email!',
     });
-  } catch(error) {
+  } catch (error) {
     console.log(error);
-    
+
     user.passwordResetToken = undefined;
     user.passwordResetExpires = undefined;
     await user.save({ validateBeforeSave: false });

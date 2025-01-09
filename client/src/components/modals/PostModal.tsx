@@ -145,11 +145,11 @@ const PostModal: React.FC<PostModalProps> = ({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 }}
             transition={{ duration: 0.3 }}
-            className="relative md:w-2/3 mx-auto max-h-[80vh] overflow-auto rounded-lg bg-primary-background p-8 shadow-lg"
+            className="relative md:w-2/3 mx-auto max-h-[80vh] overflow-auto rounded-lg bg-primary-background p-8 shadow"
           >
             <button
               onClick={closeModal}
-              className="absolute right-3 top-3 rounded-full bg-primary-white p-2 text-xl text-primary-grey shadow-lg transition-transform duration-300 will-change-transform hover:scale-90 lg:text-2xl"
+              className="absolute right-3 top-3 rounded-full bg-primary-white p-2 text-xl text-primary-grey shadow transition-transform duration-300 will-change-transform hover:scale-90 lg:text-2xl"
             >
               <RxCross2 />
             </button>
@@ -164,7 +164,7 @@ const PostModal: React.FC<PostModalProps> = ({
                 <input
                   type="text"
                   {...register("title", { required: "Title is required" })}
-                  className="w-full border-secondary-grey rounded-md shadow-sm focus:border-primary-orange border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+                  className="w-full border-secondary-grey rounded-md shadow focus:border-primary-orange border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background border-transparent"
                   placeholder="Enter post title"
                 />
                 {errors.title && (
@@ -182,7 +182,7 @@ const PostModal: React.FC<PostModalProps> = ({
                   {...register("category", {
                     required: "Category is required",
                   })}
-                  className="w-full border-secondary-grey rounded-md shadow-sm focus:border-primary-orange border outline-none py-1.5 lg:py-2 px-3"
+                  className="w-full border-transparent rounded-md shadow focus:border-primary-orange border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
                 >
                   <option value="">Select a category</option>
                   {categories?.map(
@@ -212,7 +212,7 @@ const PostModal: React.FC<PostModalProps> = ({
                       {...field}
                       theme="snow"
                       placeholder="Enter post content"
-                      className="rounded-lg"
+                      className="rounded-lg bg-secondary-background border-transparent text-primary-text"
                     />
                   )}
                 />
@@ -251,7 +251,7 @@ const PostModal: React.FC<PostModalProps> = ({
                       {({ getRootProps, getInputProps }) => (
                         <div
                           {...getRootProps()}
-                          className="w-full px-8 py-3 border border-secondary-grey hover:border-primary-orange rounded-md cursor-pointer"
+                          className="w-full px-8 py-3 bg-secondary-background hover:border-primary-orange rounded-md cursor-pointer"
                         >
                           <input {...getInputProps()} />
                           <div className="flex justify-center text-4xl">
@@ -287,7 +287,7 @@ const PostModal: React.FC<PostModalProps> = ({
                       />
                       <button
                         type="button"
-                        className="absolute top-0 right-0 bg-primary-red text-primary-white rounded-full p-1 hover:bg-red-700"
+                        className="absolute top-0 right-0 bg-primary-red text-primary-white rounded-full p-1 hover:bg-primary-red"
                         onClick={() => removeImage(index)}
                       >
                         <RxCross2 />

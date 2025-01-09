@@ -4,7 +4,7 @@ import Spinner from "./Spinner";
 import { format } from "date-fns";
 
 const getStatusBadgeColor = (status: string) => {
-  switch (status) {
+  switch (status.toLowerCase()) {
     case "pending":
       return "bg-primary-blue text-primary-background";
     case "completed":

@@ -10,7 +10,14 @@ export async function signup(newUser: FieldValues) {
   cookies().set("token", response.data.token);
   return response.data.data;
 }
-
+// Refactored login with social media function using handleApiRequest
+export async function loginWithSocialMedia(newUser: FieldValues) {
+  const response = await handleApiRequest(
+    api.post("/auth/login-with-social-media", newUser)
+  );
+  cookies().set("token", response.data.token);
+  return response.data.data;
+}
 // Refactored login function using handleApiRequest
 export async function login({
   email,

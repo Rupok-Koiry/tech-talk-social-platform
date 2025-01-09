@@ -6,6 +6,7 @@ import { useLogout } from "@/hooks/auth/useLogout";
 import { motion, AnimatePresence } from "framer-motion";
 import { RxCross2 } from "react-icons/rx";
 import { IoIosMenu } from "react-icons/io";
+import ThemeToggle from "./ThemeToggler";
 
 const Navbar = () => {
   const { user } = useMe();
@@ -18,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-primary-background shadow-sm py-4">
+    <nav className="bg-primary-background shadow py-4">
       <div className="container mx-auto px-5">
         <div className="flex justify-between items-center">
           <div className="flex">
@@ -73,6 +74,7 @@ const Navbar = () => {
                 Login
               </Link>
             )}
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Toggle Button */}
@@ -143,6 +145,7 @@ const Navbar = () => {
                 Login
               </Link>
             )}
+            <ThemeToggle />
           </motion.div>
         )}
       </AnimatePresence>

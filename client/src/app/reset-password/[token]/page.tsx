@@ -35,7 +35,7 @@ const ResetPassword: React.FC = () => {
           className="w-full h-100"
         />
       </div>
-      <div className="w-full p-6 lg:p-8  shadow-lg rounded-xl bg-secondary-background">
+      <div className="w-full p-6 lg:p-8  shadow rounded-xl bg-secondary-background">
         <h2 className="text-2xl lg:text-3xl font-semibold text-center mb-3 text-primary-text">
           Reset Password
         </h2>
@@ -53,7 +53,7 @@ const ResetPassword: React.FC = () => {
                   message: "Password must be at least 6 characters",
                 },
               })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+              className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
             />
             {errors.password && (
               <p className="text-primary-red text-xs">
@@ -73,7 +73,7 @@ const ResetPassword: React.FC = () => {
                 validate: (value, { password }) =>
                   value === password || "Passwords must match",
               })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+              className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
             />
             {errors.confirmPassword && (
               <p className="text-primary-red text-xs">

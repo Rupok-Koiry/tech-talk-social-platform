@@ -105,7 +105,7 @@ const page = () => {
           </ul>
         </div>
         <div
-          className="w-full p-6 lg:p-8  shadow-lg rounded-xl bg-secondary-background"
+          className="w-full p-6 lg:p-8  shadow rounded-xl bg-secondary-background"
           id="form"
         >
           <h2 className="text-2xl lg:text-3xl font-semibold text-center mb-3 text-primary-text">
@@ -122,8 +122,9 @@ const page = () => {
                   <input
                     type="text"
                     id="name"
+                    required
                     placeholder="Your name"
-                    className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+                    className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
                     name="name"
                   />
                 </div>
@@ -135,8 +136,9 @@ const page = () => {
                   <input
                     type="email"
                     id="email"
+                    required
                     placeholder="Your email address"
-                    className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+                    className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
                     name="email"
                   />
                 </div>
@@ -151,8 +153,9 @@ const page = () => {
                   name="message"
                   cols={30}
                   rows={5}
+                  required
                   placeholder="Write your message..."
-                  className="w-full mb-0.5 border-secondary-grey rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+                  className="w-full mb-0.5 border-secondary-grey rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
                 ></textarea>
               </div>
             </div>

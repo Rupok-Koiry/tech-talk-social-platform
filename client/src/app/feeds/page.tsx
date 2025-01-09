@@ -18,14 +18,14 @@ const Feeds = () => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Left Sidebar */}
         <div className="hidden lg:block space-y-6 order-2 lg:order-1 md:col-span-1">
-          <div className="bg-primary-background rounded-lg p-4 shadow-md">
+          <div className="bg-secondary-background rounded-lg p-4 shadow">
             <WeatherWidget />
           </div>
         </div>
 
         {/* Main Content */}
         <div className="space-y-6 order-3 lg:order-2 lg:col-span-2">
-          <div className="bg-primary-background rounded-lg p-4 shadow-md">
+          <div className="bg-secondary-background rounded-lg p-4 shadow">
             <PublishPost />
           </div>
           <SearchFilter />
@@ -46,6 +46,11 @@ const Feeds = () => {
                 {posts?.map((post: any) => (
                   <Post key={post._id} post={post} />
                 ))}
+                {!hasNextPage && (
+                  <div className="text-center text-gray-500 text-sm">
+                    You have reached the end!
+                  </div>
+                )}
               </div>
             </InfiniteScroll>
           )}

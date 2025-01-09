@@ -36,14 +36,12 @@ const Page = () => {
   const postDates = postMetrics?.map((item: { date: string }) =>
     format(new Date(item.date), "MMM d")
   );
+
   const postCounts = postMetrics?.map(
     (item: { postCount: number }) => item.postCount
   );
   const commentCounts = postMetrics?.map(
     (item: { commentCount: number }) => item.commentCount
-  );
-  const upvoteCounts = postMetrics?.map(
-    (item: { upvoteCount: number }) => item.upvoteCount
   );
 
   const postChartConfig = {
@@ -61,13 +59,6 @@ const Page = () => {
         data: commentCounts,
         backgroundColor: "rgba(153, 102, 255, 0.6)",
         borderColor: "rgba(153, 102, 255, 1)",
-        borderWidth: 1,
-      },
-      {
-        label: "Upvotes Received",
-        data: upvoteCounts,
-        backgroundColor: "rgba(255, 159, 64, 0.6)",
-        borderColor: "rgba(255, 159, 64, 1)",
         borderWidth: 1,
       },
     ],
@@ -116,17 +107,15 @@ const Page = () => {
           textColor="text-yellow-500"
         />
       </div>
-      <div className="bg-secondary-background rounded-lg shadow-lg mb-8 p-5 lg:p-8">
-        <h2 className="text-xl lg:text-2xl font-semibold text-center text-primary-text mb-5">
-          Post Metrics
-        </h2>
-        <PostChart chartData={postChartConfig} />
-      </div>
-      <div className="bg-secondary-background rounded-lg shadow-lg mb-8 p-5 lg:p-8">
-        <h2 className="text-xl lg:text-2xl  font-semibold text-center text-primary-text mb-5">
-          Payment Metrics
-        </h2>
-        <PaymentChart chartData={paymentChartConfig} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-secondary-background rounded-lg shadow-lg p-3 lg:p-5">
+          <h3 className="text-lg font-semibold mb-4">Post Metrics</h3>
+          <PostChart chartData={postChartConfig} />
+        </div>
+        <div className="bg-secondary-background rounded-lg shadow-lg p-3 lg:p-5">
+          <h3 className="text-lg font-semibold mb-4">Payment Metrics</h3>
+          <PaymentChart chartData={paymentChartConfig} />
+        </div>
       </div>
     </section>
   );

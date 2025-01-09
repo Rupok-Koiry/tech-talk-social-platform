@@ -86,7 +86,7 @@ export default function DashboardLayout({
       {" "}
       {/* Mobile Sidebar Toggle */}
       <motion.button
-        className="lg:hidden fixed top-2/4 right-4 z-20 p-2 bg-primary-blue text-primary-background rounded-full shadow-lg"
+        className="lg:hidden fixed top-2/4 right-4 z-20 p-2 bg-primary-blue text-primary-background rounded-full shadow"
         onClick={toggleSidebar}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -97,7 +97,7 @@ export default function DashboardLayout({
       <AnimatePresence>
         {(isSidebarOpen || !isMobile) && (
           <motion.aside
-            className="absolute lg:static w-64 h-[calc(100vh-80px)] bg-primary-background shadow-lg overflow-auto rounded-lg z-50"
+            className="absolute lg:static w-64 h-[calc(100vh-80px)] bg-primary-background shadow overflow-auto rounded-lg z-50"
             initial="closed"
             animate="open"
             exit="closed"

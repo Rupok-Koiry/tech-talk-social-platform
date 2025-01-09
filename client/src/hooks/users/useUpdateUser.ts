@@ -15,7 +15,6 @@ export function useUpdateUser() {
       queryClient.invalidateQueries({
         queryKey: ["users"],
       });
-      toast.success("User updated successfully");
     },
     onError: (error) => {
       toast.error(error.message);

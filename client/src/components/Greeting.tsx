@@ -4,14 +4,14 @@ import Image from "next/image";
 import React from "react";
 import Button from "./Button";
 import Spinner from "./Spinner";
-import { FaCheckCircle } from "react-icons/fa";
+import { IoMdCheckmarkCircle } from "react-icons/io";
 
 const Greeting = () => {
   const { user, isLoading } = useMe();
   if (isLoading) return <Spinner />;
 
   return (
-    <div className="p-4 bg-primary-background shadow-md rounded-lg flex xl:flex-row flex-col justify-start items-center space-x-2 gap-3">
+    <div className="p-4 bg-secondary-background shadow rounded-lg flex xl:flex-row flex-col justify-start items-center space-x-2 gap-3">
       <div className="relative border border-primary-blue p-1 rounded-full cursor-pointer">
         <Image
           src={user?.profilePic}
@@ -21,7 +21,7 @@ const Greeting = () => {
           height={56}
         />
         {user?.isVerified && (
-          <FaCheckCircle className="absolute top-1 left-12 text-primary-blue text-xl" />
+          <IoMdCheckmarkCircle className="absolute top-1 left-12 text-primary-blue text-xl" />
         )}
       </div>
       <div className="flex flex-col gap-0.5">

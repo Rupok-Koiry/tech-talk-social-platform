@@ -34,7 +34,7 @@ const ForgotPassword: React.FC = () => {
           className="w-auto h-auto md:h-[400px] mx-auto"
         />
       </div>
-      <div className="w-full p-6 lg:p-8  shadow-lg rounded-xl bg-secondary-background">
+      <div className="w-full p-6 lg:p-8  shadow rounded-xl bg-secondary-background">
         <h2 className="text-2xl lg:text-3xl font-semibold text-center mb-3 text-primary-text">
           Forgot Password
         </h2>
@@ -52,7 +52,7 @@ const ForgotPassword: React.FC = () => {
                   message: "Invalid email format",
                 },
               })}
-              className="w-full mb-0.5  rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+              className="w-full mb-0.5  rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
             />
             {errors.email && (
               <p className="text-primary-red text-xs">{errors.email.message}</p>
@@ -78,14 +78,14 @@ const ForgotPassword: React.FC = () => {
 
         <footer className="mt-4 text-center text-sm text-secondary-text font-medium">
           <Link
-            href="/privacy-policy"
+            href="/privacy"
             className="text-secondary-text hover:text-primary-text transition-all duration-300 font-semibold"
           >
             Privacy Policy
           </Link>{" "}
           <span className="text-primary-blue font-bold">|</span>{" "}
           <Link
-            href="/terms-of-service"
+            href="/terms"
             className="text-secondary-text hover:text-primary-text transition-all duration-300 font-semibold"
           >
             Terms of Service

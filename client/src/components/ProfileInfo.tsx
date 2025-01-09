@@ -73,7 +73,7 @@ const ProfileInfo = ({ user }: { user: IFormInput }) => {
   };
 
   return (
-    <div className="p-6 bg-primary-background rounded-lg shadow-md">
+    <div className="p-6 bg-secondary-background rounded-lg shadow">
       <h2 className="text-2xl font-semibold text-secondary-text mb-6">
         Profile Information
       </h2>
@@ -119,7 +119,7 @@ const ProfileInfo = ({ user }: { user: IFormInput }) => {
           <input
             {...register("name", { required: "Name is required" })}
             type="text"
-            className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+            className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
           />
           {errors.name && (
             <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
@@ -140,7 +140,7 @@ const ProfileInfo = ({ user }: { user: IFormInput }) => {
             })}
             disabled
             type="email"
-            className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+            className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
           />
           {errors.email && (
             <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
@@ -154,7 +154,7 @@ const ProfileInfo = ({ user }: { user: IFormInput }) => {
           <input
             {...register("phone")}
             type="text"
-            className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+            className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
           />
         </div>
 
@@ -165,7 +165,7 @@ const ProfileInfo = ({ user }: { user: IFormInput }) => {
           <input
             {...register("address")}
             type="text"
-            className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-secondary-background"
+            className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-1.5 lg:py-2 px-3 bg-primary-background border-transparent"
           />
         </div>
 

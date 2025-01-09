@@ -5,6 +5,7 @@ import { useUpdateMe } from "@/hooks/auth/useUpdateMe";
 import { useUpdateUser } from "@/hooks/users/useUpdateUser";
 import { useMe } from "@/hooks/auth/useMe";
 import { FiUserPlus, FiUserMinus } from "react-icons/fi";
+import toast from "react-hot-toast";
 
 interface Author {
   _id: string;
@@ -75,7 +76,14 @@ const PostAuthor: React.FC<PostAuthorProps> = ({ author, postCreatedAt }) => {
           },
         ];
 
-    updateCurrentUser({ following: newFollowing });
+    updateCurrentUser(
+      { following: newFollowing },
+      {
+        onSuccess: () => {
+          toast.success("User followed successfully");
+        },
+      }
+    );
     updateUser({
       userId: author._id,
       newUser: { followers: newFollowers },

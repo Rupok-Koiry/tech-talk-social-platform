@@ -17,8 +17,12 @@ const config: Config = {
         "primary-red": "var(--primary-red)",
         "primary-blue": "var(--primary-blue)",
       },
+      boxShadow: {
+        "primary-shadow": "var(--primary-shadow)",
+      },
     },
   },
   plugins: [],
 };
+
 export default config;

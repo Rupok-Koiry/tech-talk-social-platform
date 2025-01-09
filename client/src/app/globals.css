@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
+:root {
   --primary-background: #f0f4f8;
   --secondary-background: #d9e2ec;
   --primary-text: #102a43;
@@ -12,8 +12,10 @@
   --primary-green: #66bb6a;
   --primary-red: #ef5350;
   --primary-blue: #42a5f5;
-} */
-:root {
+  --primary-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; /* Light shadow */
+}
+
+.dark:root {
   --primary-background: #0f172a;
   --secondary-background: #1e293b;
   --primary-text: #f0f4f8;
@@ -21,17 +23,8 @@
   --primary-green: #81c784;
   --primary-red: #e57373;
   --primary-blue: #64b5f6;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary-background: #0f172a;
-    --secondary-background: #1e293b;
-    --primary-text: #f0f4f8;
-    --secondary-text: #cbd2d9;
-    --primary-green: #81c784;
-    --primary-red: #e57373;
-    --primary-blue: #64b5f6;
-  }
+  --primary-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 66, 0.15) 0px 2px 6px 2px;
 }
 
 body {
@@ -259,4 +252,10 @@ body {
 
 div::-webkit-scrollbar {
   width: 0;
+}
+.bg-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+.dark .bg-overlay {
+  background: rgba(255, 255, 255, 0.5);
 }

@@ -33,17 +33,18 @@ export const getPost = catchAsync(async (req, res, next) => {
   });
 });
 export const getAllPosts = catchAsync(async (req, res) => {
-  // APi features
+  // API Features
   const features = new APIFeatures(Post.find(), req.query)
     .filter()
     .sort()
     .limitFields()
     .paginate();
-  // POPULATE
 
+  // Populate the query
   const posts = await features.query
     .populate('author category', 'name email profilePic')
     .lean();
+
   // Add total comments to each post
   const postsWithCommentCount = await Promise.all(
     posts.map(async (post) => {
@@ -54,7 +55,17 @@ export const getAllPosts = catchAsync(async (req, res) => {
       };
     }),
   );
-  // SEND RESPONSE
+  // Check for `sort` query parameter
+  const { sort } = req.query;
+
+  if (sort === '-upvotes') {
+    // Sort in descending order of upvote count
+    postsWithCommentCount.sort((a, b) => b.upvotes.length - a.upvotes.length);
+  } else if (sort === 'upvotes') {
+    // Sort in ascending order of upvote count
+    postsWithCommentCount.sort((a, b) => a.upvotes.length - b.upvotes.length);
+  }
+  // Send response
   res.status(httpStatus.OK).json({
     success: true,
     statusCode: httpStatus.OK,
@@ -62,6 +73,7 @@ export const getAllPosts = catchAsync(async (req, res) => {
     data: postsWithCommentCount,
   });
 });
+
 export const getMyPosts = catchAsync(async (req, res) => {
   // APi features
   const features = new APIFeatures(

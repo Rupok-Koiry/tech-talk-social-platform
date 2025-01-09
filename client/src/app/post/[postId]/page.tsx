@@ -118,7 +118,7 @@ const PostDetails = () => {
     <div className="container mx-auto">
       <div className="max-w-6xl mx-auto px-5 py-4">
         <div
-          className="bg-primary-background rounded-lg p-6 shadow-md space-y-6"
+          className="bg-secondary-background rounded-lg p-6 shadow space-y-6"
           ref={targetRef}
         >
           {/* Post Title */}
@@ -172,7 +172,7 @@ const PostDetails = () => {
               <h2 className="text-xl font-semibold">Comments</h2>
               <button
                 onClick={handleGeneratePDF}
-                className="flex items-center gap-2 text-primary-text px-2 py-1 bg-primary-background rounded-md hover:bg-secondary-background transition ease-in duration-300 text-xs border border-primary-blue"
+                className="flex items-center gap-2 text-primary-text px-2 py-1 bg-secondary-background rounded-md hover:bg-secondary-background transition ease-in duration-300 text-xs border border-primary-blue"
                 disabled={isPdfGenerating}
               >
                 <FaRegFilePdf className="text-primary-blue" size={16} />{" "}
@@ -183,7 +183,7 @@ const PostDetails = () => {
               post.comments.map((comment: Comment) => (
                 <div
                   key={comment._id}
-                  className="bg-primary-background p-4 rounded-lg shadow-sm"
+                  className="bg-primary-background p-4 rounded-lg shadow"
                 >
                   <div className="flex items-center space-x-4">
                     <Image
@@ -207,7 +207,7 @@ const PostDetails = () => {
                       <textarea
                         value={editedCommentText}
                         onChange={(e) => setEditedCommentText(e.target.value)}
-                        className="w-full p-2 border rounded-md"
+                        className="w-full mb-0.5 rounded-md shadow border-primary-blue border outline-none py-2 lg:py-4 px-3 bg-primary-background "
                         rows={3}
                       />
                       <div className="mt-2 flex justify-end space-x-2">
@@ -264,7 +264,7 @@ const PostDetails = () => {
               rows={2}
               placeholder="Write your comment..."
               {...register("text", { required: true })}
-              className="w-full mb-0.5 rounded-md shadow-sm focus:border-primary-blue border outline-none py-2 lg:py-4 px-3"
+              className="w-full mb-0.5 rounded-md shadow focus:border-primary-blue border outline-none py-2 lg:py-4 px-3 bg-primary-background border-transparent"
             />
             <div className="flex justify-end items-center p-2 gap-2 w-full">
               <button

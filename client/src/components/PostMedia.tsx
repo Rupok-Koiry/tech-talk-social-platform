@@ -84,7 +84,7 @@ const PostMedia = ({
   return (
     <div className="flex justify-between items-center gap-12">
       <div className="flex justify-between items-center text-gray-500 text-xs">
-        <div className="flex items-center space-x-2 bg-gray-100 rounded-xl px-4 py-2">
+        <div className="flex items-center space-x-2 bg-primary-background rounded-xl px-4 py-2">
           <button
             onClick={() => handleVote("upvote")}
             className="flex items-center"
@@ -110,7 +110,7 @@ const PostMedia = ({
         </div>
       </div>
       {/* Comment section */}
-      <div className="flex items-center space-x-2 bg-gray-100 rounded-xl px-4 py-1">
+      <div className="flex items-center space-x-2 bg-primary-background rounded-xl px-4 py-1">
         <button className="flex items-center">
           <GoComment className="text-lg" />
         </button>
@@ -118,7 +118,7 @@ const PostMedia = ({
       </div>
       {/* Share */}
       <LinkedinShareButton url={shareUrl}>
-        <div className="flex items-center space-x-2 bg-gray-100 rounded-xl px-4 py-1">
+        <div className="flex items-center space-x-2 bg-primary-background rounded-xl px-4 py-1">
           <FaLinkedin className="text-lg" />
           <span>Share</span>
         </div>

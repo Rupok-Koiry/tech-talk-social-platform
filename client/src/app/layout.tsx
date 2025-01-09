@@ -4,6 +4,7 @@ import "./globals.css";
 import Provider from "@/utils/Provider";
 import Spinner from "@/components/Spinner";
 import { Suspense } from "react";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,15 +29,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <main className="min-h-screen flex flex-col justify-between">
-          <Provider>
-            <Suspense fallback={<Spinner />}>{children}</Suspense>
-          </Provider>
-        </main>
+        <ThemeProvider attribute="class">
+          <main className="min-h-screen flex flex-col justify-between">
+            <Provider>
+              <Suspense fallback={<Spinner />}>{children}</Suspense>
+            </Provider>
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
