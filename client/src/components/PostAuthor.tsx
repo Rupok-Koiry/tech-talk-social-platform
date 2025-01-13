@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useCallback } from "react";
 import { formatDistanceToNow } from "date-fns";
 import Image from "next/image";
@@ -7,7 +8,7 @@ import { useMe } from "@/hooks/auth/useMe";
 import { FiUserPlus, FiUserMinus } from "react-icons/fi";
 import toast from "react-hot-toast";
 
-interface Author {
+/* interface Author {
   _id: string;
   name: string;
   profilePic: string;
@@ -25,13 +26,18 @@ interface Author {
     profilePic: string;
   }>;
 }
-
+ */
 interface PostAuthorProps {
-  author: Author;
-  postCreatedAt: string;
+  author: any;
+  postCreatedAt?: string;
+  followers?: string;
 }
 
-const PostAuthor: React.FC<PostAuthorProps> = ({ author, postCreatedAt }) => {
+const PostAuthor: React.FC<PostAuthorProps> = ({
+  author,
+  postCreatedAt,
+  followers,
+}) => {
   const { user } = useMe();
   const { updateUser: updateCurrentUser } = useUpdateMe();
   const { updateUser } = useUpdateUser();
@@ -65,7 +71,7 @@ const PostAuthor: React.FC<PostAuthorProps> = ({ author, postCreatedAt }) => {
         ];
 
     const newFollowers = isFollowing
-      ? author.followers.filter((follower) => follower._id !== user._id)
+      ? author.followers.filter((follower: any) => follower._id !== user._id)
       : [
           ...(author.followers || []),
           {
@@ -80,7 +86,11 @@ const PostAuthor: React.FC<PostAuthorProps> = ({ author, postCreatedAt }) => {
       { following: newFollowing },
       {
         onSuccess: () => {
-          toast.success("User followed successfully");
+          toast.success(
+            `Successfully ${isFollowing ? "unfollowed" : "followed"} ${
+              author.name
+            }`
+          );
         },
       }
     );
@@ -105,7 +115,9 @@ const PostAuthor: React.FC<PostAuthorProps> = ({ author, postCreatedAt }) => {
         <div>
           <div className="font-semibold">{author.name}</div>
           <div className="text-xs text-gray-500">
-            {formatDistanceToNow(new Date(postCreatedAt), { addSuffix: true })}
+            {postCreatedAt &&
+              formatDistanceToNow(new Date(postCreatedAt), { addSuffix: true })}
+            {followers && <span>{followers}</span>}
           </div>
         </div>
       </div>

@@ -45,8 +45,6 @@ export async function getMyPosts(params: {
       },
     })
   );
-  console.log(response.data.data, "🤦‍♀️🤦‍♀️😖✅");
-
   return response.data.data;
 }
 export async function getPost(postId: string) {

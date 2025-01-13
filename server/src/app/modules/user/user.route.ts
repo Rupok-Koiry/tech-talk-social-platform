@@ -8,9 +8,11 @@ import {
   getAllUsers,
   updateUser,
   deleteUser,
+  getTopUsers,
 } from './user.controller';
 
 const router = express.Router();
+router.get('/top-followers', getTopUsers);
 router.use(auth('admin', 'user'));
 
 router.get('/me', getMe);

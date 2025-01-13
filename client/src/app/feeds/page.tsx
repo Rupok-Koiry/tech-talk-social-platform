@@ -3,8 +3,10 @@ import ErrorMessage from "@/components/ErrorMessage";
 import Greeting from "@/components/Greeting";
 import Post from "@/components/Post";
 import PublishPost from "@/components/PublishPost";
+import RecentPosts from "@/components/RecentPosts";
 import SearchFilter from "@/components/SearchFilter";
 import Spinner from "@/components/Spinner";
+import TopFollowers from "@/components/TopFollowers";
 import WeatherWidget from "@/components/WeatherWidget";
 import { usePosts } from "@/hooks/posts/usePosts";
 import React from "react";
@@ -15,12 +17,13 @@ const Feeds = () => {
 
   return (
     <div className="container mx-auto bg-primary-background px-5 py-4 mb-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-4 xl:gap-6 gap-y-6">
         {/* Left Sidebar */}
-        <div className="hidden lg:block space-y-6 order-2 lg:order-1 md:col-span-1">
+        <div className=" space-y-6 order-2 lg:order-1 md:col-span-1">
           <div className="bg-secondary-background rounded-lg p-4 shadow">
             <WeatherWidget />
           </div>
+          <TopFollowers />
         </div>
 
         {/* Main Content */}
@@ -59,6 +62,7 @@ const Feeds = () => {
         {/* Right Sidebar */}
         <div className="space-y-6 order-1 lg:order-3">
           <Greeting />
+          <RecentPosts />
         </div>
       </div>
     </div>
