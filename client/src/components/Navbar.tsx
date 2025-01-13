@@ -35,20 +35,20 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-2 md:gap-3">
-            <Link
-              href="/about"
-              className="text-primary-text font-medium  hover:text-primary-blue transition ease-in-out duration-300"
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="text-primary-text font-medium  hover:text-primary-blue transition ease-in-out duration-300"
-            >
-              Contact
-            </Link>
             {user ? (
               <>
+                <Link
+                  href="/about"
+                  className="text-primary-text font-medium  hover:text-primary-blue transition ease-in-out duration-300"
+                >
+                  About
+                </Link>
+                <Link
+                  href="/contact"
+                  className="text-primary-text font-medium  hover:text-primary-blue transition ease-in-out duration-300"
+                >
+                  Contact
+                </Link>
                 <Link
                   href="/feeds"
                   className="text-primary-text font-medium  hover:text-primary-blue transition ease-in-out duration-300"
@@ -99,22 +99,22 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-primary-background px-5 py-4 space-y-4"
           >
-            <Link
-              href="/about"
-              className="block text-primary-text font-medium hover:text-primary-blue transition ease-in-out duration-300"
-              onClick={toggleMobileMenu}
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="block text-primary-text font-medium hover:text-primary-blue transition ease-in-out duration-300"
-              onClick={toggleMobileMenu}
-            >
-              Contact
-            </Link>
             {user ? (
               <>
+                <Link
+                  href="/about"
+                  className="block text-primary-text font-medium hover:text-primary-blue transition ease-in-out duration-300"
+                  onClick={toggleMobileMenu}
+                >
+                  About
+                </Link>
+                <Link
+                  href="/contact"
+                  className="block text-primary-text font-medium hover:text-primary-blue transition ease-in-out duration-300"
+                  onClick={toggleMobileMenu}
+                >
+                  Contact
+                </Link>
                 <Link
                   href="/feeds"
                   className="block text-primary-text font-medium hover:text-primary-blue transition ease-in-out duration-300"

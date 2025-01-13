@@ -1,7 +1,10 @@
+"use client";
+
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { signup as signupApi } from "../../services/apiAuth";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { ApiException } from "@/utils/handleApiRequest";
 
 export function useSignup() {
   const queryClient = useQueryClient();
@@ -15,7 +18,12 @@ export function useSignup() {
       router.push("/");
     },
     onError: (error) => {
-      toast.error(error.message);
+      // Handle ApiException or fallback to generic error
+      const message =
+        error instanceof ApiException
+          ? error.message
+          : "An unexpected error occurred";
+      toast.error(message);
     },
   });
 
