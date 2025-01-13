@@ -15,7 +15,7 @@ export function useSignup() {
       router.push("/");
     },
     onError: () => {
-      toast.error("Incorrect email or password");
+      toast.error("Signup failed!");
     },
   });
 

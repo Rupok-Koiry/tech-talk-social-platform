@@ -6,7 +6,9 @@ import Spinner from "@/components/Spinner";
 import { Suspense } from "react";
 import { ThemeProvider } from "next-themes";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",

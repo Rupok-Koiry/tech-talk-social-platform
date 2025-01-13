@@ -11,8 +11,8 @@ const Following = ({ following }: any) => {
       </h2>
       {following?.length === 0 && (
         <div className="flex items-center justify-center space-x-2">
-          <FaUserEdit className="text-3xl text-gray-300" />
-          <p className="text-gray-300">No following yet</p>
+          <FaUserEdit className="text-3xl text-secondary-text" />
+          <p className="text-secondary-text">No following yet</p>
         </div>
       )}
       {/* Following List */}

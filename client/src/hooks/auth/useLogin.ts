@@ -20,8 +20,8 @@ export function useLogin() {
         router.push("/");
       }
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: () => {
+      toast.error("Incorrect email or password");
     },
   });
 
