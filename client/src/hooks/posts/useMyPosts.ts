@@ -21,6 +21,7 @@ export function useMyPosts() {
         if (lastPage.length === 0) return;
         return allPages.length + 1;
       },
+      retry: false,
     });
 
   const posts = data?.pages?.flat() ?? [];

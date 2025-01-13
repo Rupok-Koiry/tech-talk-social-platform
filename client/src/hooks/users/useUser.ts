@@ -12,6 +12,8 @@ export function useUser() {
   } = useQuery({
     queryKey: ["user", userId],
     queryFn: () => getUser(userId as string),
+    retry: false,
+
   });
 
   return { isLoading, user, error };

@@ -12,6 +12,7 @@ export function usePost() {
   } = useQuery({
     queryKey: ["post", postId],
     queryFn: () => getPost(postId as string),
+    retry: false,
   });
 
   return { isLoading, post, error };

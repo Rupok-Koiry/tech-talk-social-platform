@@ -9,6 +9,7 @@ export function usePayments() {
   } = useQuery({
     queryKey: ["payments"],
     queryFn: () => getAllPayments(),
+    retry: false,
   });
   return { isLoading, payments, error };
 }

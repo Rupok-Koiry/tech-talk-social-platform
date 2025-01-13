@@ -1,24 +1,15 @@
 "use server";
 import { cookies } from "next/headers";
-import handleApiRequest, { ApiException } from "../utils/handleApiRequest";
+import handleApiRequest from "../utils/handleApiRequest";
 import api from "./api";
 import { FieldValues } from "react-hook-form";
 
 // Refactored signup function using handleApiRequest
-
 export async function signup(newUser: FieldValues) {
-  try {
-    const response = await handleApiRequest(api.post("/auth/signup", newUser));
-    cookies().set("token", response.data.token);
-    return response.data.data;
-  } catch (error) {
-    if (error instanceof ApiException) {
-      throw error;
-    }
-    throw new ApiException("Signup failed");
-  }
+  const response = await handleApiRequest(api.post("/auth/signup", newUser));
+  cookies().set("token", response.data.token);
+  return response.data.data;
 }
-
 // Refactored login with social media function using handleApiRequest
 export async function loginWithSocialMedia(newUser: FieldValues) {
   const response = await handleApiRequest(

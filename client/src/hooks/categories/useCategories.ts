@@ -9,6 +9,7 @@ export function useCategories() {
   } = useQuery({
     queryKey: ["categories"],
     queryFn: () => getAllCategories(),
+    retry: false,
   });
   return { isLoading, categories, error };
 }
