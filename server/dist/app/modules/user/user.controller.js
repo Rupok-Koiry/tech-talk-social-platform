@@ -35,7 +35,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteUser = exports.updateUser = exports.getAllUsers = exports.getUser = exports.createUser = exports.updateMe = exports.getMe = void 0;
+exports.deleteUser = exports.updateUser = exports.getAllUsers = exports.getUser = exports.createUser = exports.getTopUsers = exports.updateMe = exports.getMe = void 0;
 const http_status_1 = __importDefault(require("http-status"));
 const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
 const user_model_1 = __importDefault(require("./user.model"));
@@ -62,6 +62,27 @@ exports.updateMe = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
         message: 'User updated successfully',
         data: user,
     });
+}));
+// Controller for fetching top users
+exports.getTopUsers = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const topUsers = yield user_model_1.default.aggregate([
+        // Add a field that counts the number of followers
+        { $addFields: { followerCount: { $size: '$followers' } } },
+        // Sort by the follower count in descending order
+        { $sort: { followerCount: -1 } },
+        // Limit to top 5 users
+        { $limit: 5 },
+        // Project only the fields we need
+        {
+            $project: {
+                name: 1,
+                profilePic: 1,
+                followers: 1,
+                followerCount: 1,
+            },
+        },
+    ]);
+    res.status(200).json({ data: topUsers });
 }));
 exports.createUser = factory.createOne(user_model_1.default);
 exports.getUser = factory.getOne(user_model_1.default);

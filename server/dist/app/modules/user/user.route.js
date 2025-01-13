@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const auth_1 = __importDefault(require("../../middlewares/auth"));
 const user_controller_1 = require("./user.controller");
 const router = express_1.default.Router();
+router.get('/top-followers', user_controller_1.getTopUsers);
 router.use((0, auth_1.default)('admin', 'user'));
 router.get('/me', user_controller_1.getMe);
 router.patch('/me', user_controller_1.updateMe);
