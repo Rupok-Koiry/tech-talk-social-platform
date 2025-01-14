@@ -44,7 +44,7 @@ const TopFollowers = () => {
             }) => (
               <li
                 key={user._id}
-                className="flex items-center gap-3 group hover:bg-primary-background hover:shadow-md rounded-md p-3 transition duration-200 ease-in-out"
+                className="flex items-center gap-3 group hover:bg-primary-background hover:shadow-md rounded-md p-3 transition duration-200 ease-in-out border-b border-primary-background"
               >
                 <PostAuthor
                   author={user}
