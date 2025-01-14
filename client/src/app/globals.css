@@ -51,11 +51,12 @@ body {
 }
 .ql-container.ql-snow {
   border: 0;
-  height: 90px;
+  height: 120px;
 }
 .logo-text {
   font-family: "Pacifico", cursive;
 }
+
 /* Review.css */
 
 .custom-pagination {

@@ -6,22 +6,21 @@ import { useLogout } from "@/hooks/auth/useLogout";
 import { motion, AnimatePresence } from "framer-motion";
 import { RxCross2 } from "react-icons/rx";
 import { IoIosMenu } from "react-icons/io";
-import {
-  BiChevronDown,
-  BiUser,
-  BiCog,
-  BiHelpCircle,
-  BiBookmark,
-} from "react-icons/bi";
+import { BiChevronDown, BiUser, BiCog, BiBookmark } from "react-icons/bi";
 import ThemeToggle from "./ThemeToggler";
 import Image from "next/image";
+import { BsSpeedometer } from "react-icons/bs";
+import { CiFileOn } from "react-icons/ci";
+import { FaAmazonPay, FaUser } from "react-icons/fa";
+import { LuActivitySquare } from "react-icons/lu";
 
 const Navbar = () => {
   const { user } = useMe();
   const { logout } = useLogout();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isProfileDropdownOpen, setProfileDropdownOpen] = useState(false);
-  const profileDropdownRef = useRef(null);
+  const [isMobileProfileOpen, setMobileProfileOpen] = useState(false);
+  const profileDropdownRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -29,10 +28,10 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         profileDropdownRef.current &&
-        !profileDropdownRef.current.contains(event.target)
+        !profileDropdownRef.current.contains(event.target as Node)
       ) {
         setProfileDropdownOpen(false);
       }
@@ -42,31 +41,54 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const profileMenuItems = [
-    {
-      icon: <BiUser className="text-lg" />,
-      label: "My Profile",
-      href: "/profile",
-    },
-    {
-      icon: <BiBookmark className="text-lg" />,
-      label: "Saved Posts",
-      href: "/saved",
-    },
-    {
-      icon: <BiCog className="text-lg" />,
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      icon: <BiHelpCircle className="text-lg" />,
-      label: "Help & Support",
-      href: "/help",
-    },
-  ];
-
+  const profileMenuItems =
+    user?.role === "admin"
+      ? [
+          {
+            icon: <BsSpeedometer className="text-lg" />,
+            label: "Dashboard",
+            href: "/dashboard/admin",
+          },
+          {
+            icon: <CiFileOn className="text-lg" />,
+            label: "Manage Posts",
+            href: "/dashboard/admin/manage-posts",
+          },
+          {
+            icon: <FaUser className="text-lg" />,
+            label: "Manage Users",
+            href: "/dashboard/admin/manage-users",
+          },
+          {
+            icon: <FaAmazonPay className="text-lg" />,
+            label: "Make Payment",
+            href: "/dashboard/admin/payments",
+          },
+          {
+            icon: <LuActivitySquare className="text-lg" />,
+            label: "Activity Logs",
+            href: "/dashboard/admin/activity-logs",
+          },
+        ]
+      : [
+          {
+            icon: <BiUser className="text-lg" />,
+            label: "Dashboard",
+            href: "/dashboard/user",
+          },
+          {
+            icon: <BiBookmark className="text-lg" />,
+            label: "My Posts",
+            href: "/dashboard/user/my-posts",
+          },
+          {
+            icon: <BiCog className="text-lg" />,
+            label: "Make Payment",
+            href: "/dashboard/user/payment",
+          },
+        ];
   return (
-    <nav className="bg-primary-background shadow-primary-shadow py-4 sticky top-0 z-20">
+    <nav className="bg-primary-background shadow-primary-shadow py-4 sticky top-0 z-30">
       <div className="container mx-auto px-5">
         <div className="flex justify-between items-center">
           <div className="flex">
@@ -135,13 +157,13 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute right-0 mt-2 w-48 bg-primary-background rounded-lg shadow-lg border border-gray-200 py-2"
+                        className="absolute right-0 my-2 w-56 bg-primary-background rounded-lg shadow-lg border border-primary-blue py-2"
                       >
-                        <div className="px-4 py-2 border-b border-gray-200">
+                        <div className="px-4 py-2 border-b  border-secondary-text">
                           <p className="font-medium text-primary-text">
                             {user.name}
                           </p>
-                          <p className="text-sm text-gray-500 truncate">
+                          <p className="text-sm text-secondary-text truncate">
                             {user.email}
                           </p>
                         </div>
@@ -150,7 +172,7 @@ const Navbar = () => {
                           <Link
                             key={index}
                             href={item.href}
-                            className="flex items-center gap-2 px-4 py-2 text-primary-text hover:bg-gray-100 transition duration-200"
+                            className="flex items-center gap-2 px-4 py-2 text-primary-text hover:text-primary-blue transition duration-200"
                           >
                             {item.icon}
                             <span>{item.label}</span>
@@ -159,7 +181,7 @@ const Navbar = () => {
 
                         <button
                           onClick={() => logout()}
-                          className="w-full flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-gray-100 transition duration-200"
+                          className="w-full flex items-center gap-2 px-4 py-2 text-red-600 transition duration-200"
                         >
                           <BiUser className="text-lg" />
                           <span>Logout</span>
@@ -204,34 +226,75 @@ const Navbar = () => {
           >
             {user ? (
               <>
-                <div className="flex items-center gap-3 pb-4 border-b border-gray-200">
-                  <Image
-                    src={user.profilePic}
-                    alt="User Avatar"
-                    width={40}
-                    height={40}
-                    className="rounded-full border-2 border-primary-blue"
-                  />
-                  <div>
-                    <p className="font-medium text-primary-text">{user.name}</p>
-                    <p className="text-sm text-gray-500 truncate">
-                      {user.email}
-                    </p>
-                  </div>
+                {/* Mobile Profile Section */}
+                <div className="border-b border-secondary-text pb-4">
+                  <button
+                    onClick={() => setMobileProfileOpen(!isMobileProfileOpen)}
+                    className="w-full flex items-center justify-between"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Image
+                        src={user.profilePic}
+                        alt="User Avatar"
+                        width={40}
+                        height={40}
+                        className="rounded-full border-2 border-primary-blue"
+                      />
+                      <div className="text-left">
+                        <p className="font-medium text-primary-text">
+                          {user.name}
+                        </p>
+                        <p className="text-sm text-secondary-text truncate">
+                          {user.email}
+                        </p>
+                      </div>
+                    </div>
+                    <motion.div
+                      animate={{ rotate: isMobileProfileOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <BiChevronDown className="text-xl text-primary-text" />
+                    </motion.div>
+                  </button>
+
+                  <AnimatePresence>
+                    {isMobileProfileOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-4 space-y-4">
+                          {profileMenuItems.map((item, index) => (
+                            <Link
+                              key={index}
+                              href={item.href}
+                              className="flex items-center gap-2 text-primary-text hover:text-primary-blue transition duration-200"
+                              onClick={toggleMobileMenu}
+                            >
+                              {item.icon}
+                              <span>{item.label}</span>
+                            </Link>
+                          ))}
+                          <button
+                            onClick={() => {
+                              logout();
+                              toggleMobileMenu();
+                            }}
+                            className="w-full flex items-center gap-2 text-red-600 hover:text-red-700 transition duration-200"
+                          >
+                            <BiUser className="text-lg" />
+                            <span>Logout</span>
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
-                {profileMenuItems.map((item, index) => (
-                  <Link
-                    key={index}
-                    href={item.href}
-                    className="flex items-center gap-2 text-primary-text hover:text-primary-blue transition duration-200"
-                    onClick={toggleMobileMenu}
-                  >
-                    {item.icon}
-                    <span>{item.label}</span>
-                  </Link>
-                ))}
-
+                {/* Navigation Links */}
                 <Link
                   href="/about"
                   className="block text-primary-text font-medium hover:text-primary-blue transition duration-200"
@@ -253,17 +316,8 @@ const Navbar = () => {
                 >
                   Feeds
                 </Link>
-                <button
-                  onClick={() => {
-                    logout();
-                    toggleMobileMenu();
-                  }}
-                  className="w-full flex items-center gap-2 text-red-600 hover:text-red-700 transition duration-200"
-                >
-                  <BiUser className="text-lg" />
-                  <span>Logout</span>
-                </button>
-                <div className="pt-2 border-t border-gray-200">
+
+                <div className="pt-2 border-t border-secondary-text">
                   <ThemeToggle />
                 </div>
               </>

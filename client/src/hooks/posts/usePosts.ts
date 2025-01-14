@@ -18,7 +18,7 @@ export function usePosts() {
         getAllPosts({ ...filters, page: pageParam, limit: 20 }),
       initialPageParam: 1,
       getNextPageParam: (lastPage, allPages) => {
-        if (lastPage.length === 0) return;
+        if (lastPage?.length === 0) return;
         return allPages.length + 1;
       },
       retry: false,

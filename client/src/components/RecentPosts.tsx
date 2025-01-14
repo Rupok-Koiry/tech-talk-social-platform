@@ -41,7 +41,7 @@ const RecentPosts = () => {
             (post: { _id: string; title: string; createdAt: string }) => (
               <li
                 key={post._id}
-                className="flex items-center gap-3 group hover:bg-primary-background hover:shadow-md rounded-md p-3 transition duration-200 ease-in-out  border-b border-primary-background"
+                className="flex items-center gap-3 group hover:bg-primary-background hover:shadow-md rounded-md p-3 transition duration-200 ease-in-out  border-b border-secondary-text"
               >
                 <div className="flex-grow">
                   <h3 className="text-md font-semibold text-primary-text group-hover:text-primary-orange">

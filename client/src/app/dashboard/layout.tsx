@@ -80,13 +80,12 @@ export default function DashboardLayout({
       </Link>
     </motion.li>
   );
-
   return (
-    <div className="flex min-h-screen bg-primary-background">
+    <div className="flex">
       {" "}
       {/* Mobile Sidebar Toggle */}
       <motion.button
-        className="lg:hidden fixed top-2/4 right-4 z-20 p-2 bg-primary-blue text-primary-background rounded-full shadow"
+        className="lg:hidden fixed top-2/4 right-4  p-2 bg-primary-blue text-primary-background rounded-full shadow z-20"
         onClick={toggleSidebar}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -97,7 +96,7 @@ export default function DashboardLayout({
       <AnimatePresence>
         {(isSidebarOpen || !isMobile) && (
           <motion.aside
-            className="absolute lg:static w-64 h-[calc(100vh-80px)] bg-primary-background shadow overflow-auto rounded-lg z-50"
+            className="absolute lg:static w-64 h-[calc(100vh-80px)] bg-primary-background shadow-primary-shadow overflow-auto rounded-lg z-20"
             initial="closed"
             animate="open"
             exit="closed"
@@ -195,7 +194,7 @@ export default function DashboardLayout({
       {/* Main Content Area */}
       <main className="flex-1 overflow-y-auto">
         <motion.div
-          className="max-w-7xl mx-auto py-5 px-5"
+          className="max-w-7xl mx-auto py-5 px-5 h-screen overflow-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
