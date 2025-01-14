@@ -46,7 +46,7 @@ const ProfileInfo = ({ user }: { user: IProfileInfo }) => {
             >
               <div className="w-24 h-24 md:w-28 md:h-28 rounded-full border-4 border-primary-background shadow-lg">
                 <Image
-                  src={user.profilePic || "/default-avatar.png"}
+                  src={user?.profilePic || "/default-avatar.png"}
                   alt="Profile"
                   width={112}
                   height={112}
@@ -61,14 +61,14 @@ const ProfileInfo = ({ user }: { user: IProfileInfo }) => {
             {/* Name and Quick Info */}
             <div className="text-center sm:text-left flex-1">
               <h2 className="text-2xl sm:text-3xl font-semibold text-primary-text mb-1 break-words">
-                {user.name}
+                {user?.name}
               </h2>
               <div className="flex items-center justify-center sm:justify-start gap-2 text-primary-background/80 mb-2">
                 <FaBriefcase className="w-4 h-4" />
-                <span className="capitalize">{user.role || "Member"}</span>
+                <span className="capitalize">{user?.role || "Member"}</span>
                 <span className="mx-2 hidden sm:block">•</span>
                 <FaMedal className="w-4 h-4 hidden sm:block" />
-                <span>{user.status || "Active"}</span>
+                <span>{user?.status || "Active"}</span>
               </div>
               <Link href="/dashboard/user/edit-profile">
                 <motion.button
@@ -104,19 +104,19 @@ const ProfileInfo = ({ user }: { user: IProfileInfo }) => {
                 <ContactCard
                   icon={<FaEnvelope />}
                   label="Email Address"
-                  value={user.email}
+                  value={user?.email}
                   color="bg-primary-blue"
                 />
                 <ContactCard
                   icon={<FaPhoneAlt />}
                   label="Phone Number"
-                  value={user.phone || "Not provided"}
+                  value={user?.phone || "Not provided"}
                   color="bg-primary-green"
                 />
                 <ContactCard
                   icon={<FaMapMarkerAlt />}
                   label="Location"
-                  value={user.address || "Not provided"}
+                  value={user?.address || "Not provided"}
                   color="bg-primary-red"
                 />
               </div>
@@ -136,8 +136,8 @@ const ProfileInfo = ({ user }: { user: IProfileInfo }) => {
                 Account Information
               </h2>
               <AccountCard
-                joinedDate={user.joinedDate || "Recently"}
-                role={user.role || "Member"}
+                joinedDate={user?.joinedDate || "Recently"}
+                role={user?.role || "Member"}
               />
             </motion.div>
           </div>
